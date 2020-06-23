@@ -1,0 +1,15 @@
+
+//h1 {
+//    padding-top: 2rem;
+//    padding-bottom: 3rem;
+//}
+ul li {
+    list-style: none;
+    &.home {
+        text-align: center;
+    }
+}
+pre {
+    font-size: 120%;
+    background-color: #444;
+}

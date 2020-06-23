@@ -1,0 +1,12 @@
+{
+    "name": "camille/sf",
+    "authors": [
+        {
+            "name": "capos",
+            "email": "camille-aime.possamai@wanadoo.fr"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}

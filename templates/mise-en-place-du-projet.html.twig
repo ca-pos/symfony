@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}Mise en place du projet{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+       <h1 class="mt-3 mb-5">Mis en place du projet</h1>
+        <ol>
+            <li>composer create-project symfony/website-skeleton blog_cuisine ^{version}</li>
+            <li>ajouter aux sauvegardes</li>
+            <ul>
+                <li>dans iperius backup</li>
+            </ul>
+            <li>pour avoir la barre de débogage</li>
+            <ul>
+                <li>composer require symfony/apache-pack</li>
+                <li>(et, peut-être composer require symfony/profiler-pack)</li>
+            </ul>     
+            <li>choisir un thème bootswatch</li>
+            <li>si nécessaire, ajouter le thème pour les formulaires dans</li>
+            <ul>
+                <li>config/packages/twig.yaml</li>
+                <ul>
+                    <div>
+                        <code class="html p-0 m-0">                   
+                            <li class="p-0 m-0">		
+                                <pre>
+twig:
+   form_themes: ['bootstrap_4_layout.html.twig']
+                                </pre>
+                            </li>
+                        </code>
+                    </div>
+                </ul>
+            </ul>
+        </ol>
+
+</div>
+{% endblock %}

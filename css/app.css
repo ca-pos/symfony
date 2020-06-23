@@ -1,0 +1,13 @@
+ul li {
+  list-style: none;
+}
+ul li.home {
+  text-align: center;
+}
+
+pre {
+  font-size: 120%;
+  background-color: #444;
+}
+
+/*# sourceMappingURL=app.css.map */

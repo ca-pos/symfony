@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/app.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+    {% if  (page != 'home') %}
+    <div class="container text-center">
+        <button class="button btn btn-primary">
+            <a href="index.php?p=home">Retour à l'accueil</a>
+        </button>
+    </div>
+    {% endif %}
+</body>
+</html>
