@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% import 'macros.html.twig' as macros %}
+
+
+{% block title %}{{ pages_h1[page_number]}}{% endblock %}
+
+
+{% block pagetitle %}
+    {{ macros.write_title(pages_h1[page_number]) }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <ol>
+            <li>création de la base de données</li>
+                <ul class="niv2">
+                    <li>dans le fichier .env</li>
+                        <ul>
+                                <li class="text-info">		
+DATABASE_URL=mysql://root:@127.0.0.1:3306/nom_de_la_base_de_donnees?serverVersion=5.7
+                                </li>
+                        </ul>
+                    <li>php bin/console doctrine:database:create</li>
+                </ul>
+            <li>
+                création d'une table
+                <ul class="niv2">
+                    <li>php bin/console make:entity nom_de_l_entite (p.ex. Recipe)</li>
+                    <li>php bin/console make:migration</li>
+                    <li>php bin/console doctrine:migrations:migrate</li>
+                </ul>
+            </li>
+            <li>
+                création de fausses données
+                <ul class="niv2">
+                    <li>composer require orm-fixtures --dev</li>
+                        <ul>
+                            <li class="text-muted">option --dev car uniquement en développement</li>
+                        </ul>
+                    <li>php bin/console make:fixtures</li>
+                        <ul class="niv3">
+                            <li>
+                                modifier le fichier créé (p.ex. AppFixtures.php) pour un premier essai
+                            </li>
+                        </ul>
+                    <li>php bin/console doctrine:fixtures:load</li>
+                    <li>
+                        composer require fzaninotto/faker
+                        <ul class="niv3">
+                            <li>
+                                finaliser le fichier créé (p.ex. AppFixtures.php) en utilisant les outils de faker
+                            </li>
+                        </ul>
+                    </li>
+                    <li>php bin/console doctrine:fixtures:load (à nouveau pour charger les données faker)
+                    </li>
+                </ul>
+            </li>
+            <li>si slugify est nécessaire</li>
+                <ul class="niv2">
+                    <li>
+                        composer require cocur/slugify
+                        <ul>
+                            <li class="text-muted">sera également utilisé en prod donc pas de --dev</li>
+                        </ul>
+                    </li>
+                    <li>
+                        ajouter la méthode slugify dans la classe et ne pas oublier dans les annotations
+                        <ul class="niv3">
+                            <li>de la fonction :  preUpdate, prePersist, etc.</li>
+                            <li>de la classe   :  @ORM\HasLifecycleCallbacks()</li>
+                        </ul>
+                    </li>
+                </ul>
+        </ol>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+   {{ pages_list[pages_list|length-1]}}
+   <div class="container">
+       <h1 class="text-center mt-3 mb-5">Développer une application avec Symfony</h1>
+        <ul class="home">
+            {% for i in 1..pages_list|length-1 %}
+                <li>
+                    <a href="index.php?p={{pages_list[i]}}">
+                        {{pages_h1[i]}}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+   </div>
+{% endblock %}
+
+

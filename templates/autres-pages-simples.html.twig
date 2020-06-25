@@ -1,0 +1,40 @@
+{% extends 'base.html.twig'%}
+{% import 'macros.html.twig' as macros %}
+
+{% block pagetitle %}
+    {{ macros.write_title(pages_h1[page_number]) }}
+{% endblock %}
+
+{% block body %}
+   
+
+    <div class="container">
+        <ol>
+            <li>création des autres pages simples (notamment ne comportant pas de formulaire</li>
+            <ul class="niv2">
+                <li>controller (à créer ou à modifier) et twig</li>
+                <li>ne pas oublier</li>
+                <ul class="niv3">
+                    <li>l'injection de dépendance</li>
+                    <li>
+                        la conversion de paramètre
+                        <blockquote class="blockquote">
+                            <p class="mb-0 px-5 text-muted"><small>
+                                p.ex. soit une recette d'un certain slug qui est donc présent comme
+                                paramètre de la route, si on donne comme argument de fonction &nbsp;: <br/>
+                                Recipe $recipe<br/>
+                                symfony passera en fait la recipe dont le slug est celui de la route
+                                </small>
+                            </p>
+                        </blockquote>
+                    </li>
+                </ul>
+            </ul>
+        </ol>
+    </div> 
+
+{% endblock %}
+
+
+
+

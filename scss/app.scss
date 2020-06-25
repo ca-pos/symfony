@@ -1,15 +1,19 @@
 
-//h1 {
-//    padding-top: 2rem;
-//    padding-bottom: 3rem;
-//}
-ul li {
+ul {
     list-style: none;
     &.home {
         text-align: center;
+        font-size: 150%;
+    }
+    &.niv2 > li:before {
+        content: '-- ';
+    }
+    &.niv3 > li:before {
+        content: '°° ';
     }
 }
 pre {
+    margin-top: .5rem;
     font-size: 120%;
     background-color: #444;
 }

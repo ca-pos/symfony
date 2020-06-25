@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/app.css">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
-    {% block body %}
-    {% endblock %}
-    {% if  (page != 'home') %}
-    <div class="container text-center">
-        <button class="button btn btn-primary">
-            <a href="index.php?p=home">Retour à l'accueil</a>
-        </button>
-    </div>
-    {% endif %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/app.css">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+
+        <h1 class="mt-3 mb-5">{% block pagetitle %} {% endblock %}</h1>
+
+<!--
+            toto {{ pages_list[1] }} 
+            {% set pn = page_number%}
+            tata {{pn}}
+-->
+            
+        {% block body %}
+        {% endblock body %}
+        {% if  (page != 'accueil') %}
+            <div class="container text-right">
+                <div class="row">
+                    <button class="button btn btn-primary m-2 ml-auto">
+                        <a href="index.php?p=accueil">Retour à l'accueil</a>
+                    </button>
+                    <button class="button btn btn-primary m-2">
+                        <a href="javascript:history.back()">Retour dernière page</a>
+                    </button>
+                    <button class="button btn btn-primary m-2">
+                        <a href="index.php?p=home">Page précédente</a>
+                    </button>
+                    <button class="button btn btn-primary m-2">
+                        <a href="index.php?p=home">Page suivante</a>
+                    </button>
+
+                </div>
+            </div>
+        {% endif %}
+    </body>
 </html>
+
+
+<!--{{ pages_list[page_number-2] }}-->

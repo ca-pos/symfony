@@ -1,25 +1,31 @@
 {% extends 'base.html.twig' %}
+{% import 'macros.html.twig' as macros %}
 
-{% block title%}Mise en place du projet{% endblock %}
 
+{% block title %}{{ pages_h1[page_number]}}{% endblock %}
+
+
+{% block pagetitle %}
+    {{ macros.write_title(pages_h1[page_number]) }}
+{% endblock %}
 
 {% block body %}
     <div class="container">
-       <h1 class="mt-3 mb-5">Mis en place du projet</h1>
+
         <ol>
             <li>composer create-project symfony/website-skeleton blog_cuisine ^{version}</li>
             <li>ajouter aux sauvegardes</li>
-            <ul>
+            <ul class="niv2">
                 <li>dans iperius backup</li>
             </ul>
             <li>pour avoir la barre de débogage</li>
-            <ul>
+            <ul class="niv2">
                 <li>composer require symfony/apache-pack</li>
                 <li>(et, peut-être composer require symfony/profiler-pack)</li>
             </ul>     
             <li>choisir un thème bootswatch</li>
             <li>si nécessaire, ajouter le thème pour les formulaires dans</li>
-            <ul>
+            <ul class="niv2">
                 <li>config/packages/twig.yaml</li>
                 <ul>
                     <div>

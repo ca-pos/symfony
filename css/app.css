@@ -1,11 +1,20 @@
-ul li {
+@charset "UTF-8";
+ul {
   list-style: none;
 }
-ul li.home {
+ul.home {
   text-align: center;
+  font-size: 150%;
+}
+ul.niv2 > li:before {
+  content: "-- ";
+}
+ul.niv3 > li:before {
+  content: "°° ";
 }
 
 pre {
+  margin-top: 0.5rem;
   font-size: 120%;
   background-color: #444;
 }
