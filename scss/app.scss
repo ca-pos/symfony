@@ -1,19 +1,58 @@
+$ul_color: #F39C12;
+$list_color: #6a2;
+$col_info: #3498DB;
 
+//---------------------------
+// TYPOGRAPHIE
+//---------------------------
+.tt {
+    font-family: monospace;
+    font-size: 1.4em;
+    letter-spacing: -.04em;
+    margin: 0 auto;
+    color: $col_info;
+}
+//---------------------------
+//  LISTES
+//---------------------------
 ul {
     list-style: none;
     &.home {
         text-align: center;
         font-size: 150%;
     }
+    & >li {
+        color: white;
+    }
     &.niv2 > li:before {
         content: '-- ';
+        color: $list_color;
+        font-size: 150%;
     }
     &.niv3 > li:before {
         content: '°° ';
+        color: $list_color;
+        font-size: 150%;
+        position: relative;
+        top: .3rem;
     }
 }
+//---------------------------
+ol {
+    & > li {
+        color: #F39C12;
+    }
+    &.niv2>li, &.niv3>li {
+        color: white;
+    }
+}
+//---------------------------
+//    CODE
+//---------------------------
 pre {
     margin-top: .5rem;
     font-size: 120%;
     background-color: #444;
+    color: $col_info;
 }
+//---------------------------

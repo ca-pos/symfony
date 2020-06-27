@@ -4,41 +4,41 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/app.css">
-        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+        <title>{{ pages_h1[page_number]}}</title>
     </head>
     <body>
 
-        <h1 class="mt-3 mb-5">{% block pagetitle %} {% endblock %}</h1>
+        {% import 'macros.html.twig' as macros %}
 
-<!--
-            toto {{ pages_list[1] }} 
-            {% set pn = page_number%}
-            tata {{pn}}
--->
-            
-        {% block body %}
-        {% endblock body %}
+        <div class="container">
+            {% if  (page != 'accueil') %}
+                <h1 class="mt-3 mb-5">
+                    {{ macros.write_title(pages_h1[page_number]) }}
+                </h1>
+            {% endif %}
+
+            {% block body %}
+            {% endblock body %}
+        </div>
+
         {% if  (page != 'accueil') %}
             <div class="container text-right">
                 <div class="row">
                     <button class="button btn btn-primary m-2 ml-auto">
-                        <a href="index.php?p=accueil">Retour à l'accueil</a>
+                        <a href="index.php?p=accueil"><i class="fas fa-home"></i>&ensp;Retour à l'accueil</a>
                     </button>
                     <button class="button btn btn-primary m-2">
-                        <a href="javascript:history.back()">Retour dernière page</a>
+                        <a href="javascript:history.back()">Retour dernière page&ensp;<i class="fas fa-arrow-up"></i></a>
                     </button>
                     <button class="button btn btn-primary m-2">
-                        <a href="index.php?p=home">Page précédente</a>
+                        <a href="index.php?p=home"><i class="fas fa-arrow-left"></i>&ensp;Page précédente</a>
                     </button>
                     <button class="button btn btn-primary m-2">
-                        <a href="index.php?p=home">Page suivante</a>
+                        <a href="index.php?p=home">Page suivante&ensp;<i class="fas fa-arrow-right"></i></a>
                     </button>
-
                 </div>
-            </div>
+        </div>
         {% endif %}
     </body>
 </html>
-
-
-<!--{{ pages_list[page_number-2] }}-->

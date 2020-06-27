@@ -1,4 +1,12 @@
 @charset "UTF-8";
+.tt {
+  font-family: monospace;
+  font-size: 1.4em;
+  letter-spacing: -0.04em;
+  margin: 0 auto;
+  color: #3498DB;
+}
+
 ul {
   list-style: none;
 }
@@ -6,17 +14,34 @@ ul.home {
   text-align: center;
   font-size: 150%;
 }
+ul > li {
+  color: white;
+}
 ul.niv2 > li:before {
   content: "-- ";
+  color: #6a2;
+  font-size: 150%;
 }
 ul.niv3 > li:before {
   content: "°° ";
+  color: #6a2;
+  font-size: 150%;
+  position: relative;
+  top: 0.3rem;
+}
+
+ol > li {
+  color: #F39C12;
+}
+ol.niv2 > li, ol.niv3 > li {
+  color: white;
 }
 
 pre {
   margin-top: 0.5rem;
   font-size: 120%;
   background-color: #444;
+  color: #3498DB;
 }
 
 /*# sourceMappingURL=app.css.map */

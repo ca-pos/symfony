@@ -1,17 +1,12 @@
 {% extends 'base.html.twig' %}
-{% import 'macros.html.twig' as macros %}
-
-
-{% block title %}{{ pages_h1[page_number]}}{% endblock %}
-
-
-{% block pagetitle %}
-    {{ macros.write_title(pages_h1[page_number]) }}
-{% endblock %}
 
 {% block body %}
-
-    <div class="container">
+        <div class="card text-white text-center bg-danger mb-3">
+            <div class="card-header">ATTENTION ... ATTENTION ... ATTENTION ...</div>
+            <div class="card-body">
+                <p class="card-text lead">En cas de contraintes de clefs étrangères, ne pas oublier de vider les tables déjà existantes avant d'effectuer la migration.</p>
+            </div>
+        </div>
         <ol>
             <li>création de la base de données</li>
                 <ul class="niv2">
@@ -74,6 +69,4 @@ DATABASE_URL=mysql://root:@127.0.0.1:3306/nom_de_la_base_de_donnees?serverVersio
                     </li>
                 </ul>
         </ol>
-    </div>
-
 {% endblock %}

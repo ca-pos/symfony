@@ -1,34 +1,39 @@
 {% extends 'base.html.twig' %}
-{% import 'macros.html.twig' as macros %}
-
-
-{% block title %}{{ pages_h1[page_number]}}{% endblock %}
-
-
-{% block pagetitle %}
-    {{ macros.write_title(pages_h1[page_number]) }}
-{% endblock %}
 
 {% block body %}
-    <div class="container">
-
         <ol>
-            <li>composer create-project symfony/website-skeleton blog_cuisine ^{version}</li>
+            <li>
+               <span class="tt">               
+                    composer create-project symfony/website-skeleton blog_cuisine ^{version}
+               </span>
+               <ul>
+                   <li class="text-muted">ou <span class="tt">^{version}</span> est la version de Symfony souhaitée</li>
+               </ul>
+            </li>
             <li>ajouter aux sauvegardes</li>
             <ul class="niv2">
                 <li>dans iperius backup</li>
             </ul>
             <li>pour avoir la barre de débogage</li>
             <ul class="niv2">
-                <li>composer require symfony/apache-pack</li>
-                <li>(et, peut-être composer require symfony/profiler-pack)</li>
+                <li>
+                   <span class="tt">
+                        composer require symfony/apache-pack
+                   </span>
+                </li>
+                <li>(et, peut-être 
+                    <span class="tt">composer require symfony/profiler-pack</span>
+                )</li>
             </ul>     
             <li>choisir un thème bootswatch</li>
             <li>si nécessaire, ajouter le thème pour les formulaires dans</li>
             <ul class="niv2">
-                <li>config/packages/twig.yaml</li>
+                <li>
+                    <span class="tt">
+                        config/packages/twig.yaml
+                    </span>
+                </li>
                 <ul>
-                    <div>
                         <code class="html p-0 m-0">                   
                             <li class="p-0 m-0">		
                                 <pre>
@@ -37,10 +42,7 @@ twig:
                                 </pre>
                             </li>
                         </code>
-                    </div>
                 </ul>
             </ul>
         </ol>
-
-</div>
 {% endblock %}

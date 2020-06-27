@@ -1,17 +1,6 @@
 {% extends 'base.html.twig' %}
-{% import 'macros.html.twig' as macros %}
-
-
-{% block title %}{{ pages_h1[page_number]}}{% endblock %}
-
-
-{% block pagetitle %}
-    {{ macros.write_title(pages_h1[page_number]) }}
-{% endblock %}
-
 
 {% block body %}
-    <div class="container">
         <ol>
            <li>
                généralement, on commence par écire la page d'accueil
@@ -27,8 +16,4 @@
                 git add . puis git commit -m "..."
             </li>
         </ol>
-    </div>
-
-
-
 {% endblock %}

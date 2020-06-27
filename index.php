@@ -27,6 +27,9 @@ $pages_h1 = [
     "Première page",
     "Autres pages simples",
     "Base de données et création de fausses données",
+    "Suppression d'un attribut dans une table",
+    "Formulaires",
+    "Insérer getConfiguration dans une classe",
 ];
 
 $slug = new Slugify();

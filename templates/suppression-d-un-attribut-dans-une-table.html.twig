@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <ol>
+            <li>supprimer l'attribut dans la table</li>
+            <li>créer une nouvelle migration avec la commande diff</li>
+            <ul class="niv2">
+                <li>php bin/console doctrine:migrations:diff</li>
+            </ul>
+            <li>effectuer la migration</li>
+            <ul class="niv2">
+                <li>php bin/console doctrine:migrations:migrate</li>
+            </ul>
+        </ol>
+{% endblock %}

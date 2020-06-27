@@ -1,0 +1,45 @@
+{% extends 'base.html.twig'%}
+
+
+{% block body %}
+<ol>
+    <li>création d'une classe</li>
+        <ul class="niv2">
+            <li>
+                créer un fichier <span class="tt">ApplicationType.php</span> dans le répertoire <span class="tt">Form</span>
+                <ul class="niv3">
+                    <li><span class="tt">class ApplicationType extends AbstractType</span></li>
+                    <li>ne pas oublier d'indiquer le namespace&nbsp;: <span class="tt">namespace App\Form;</span></li>
+                </ul>
+            </li>
+            <li>
+                écrire la fonction <span class="tt">getConfiguration</span> en tant que <span class="tt">protected</span>
+            </li>
+            <li>
+                exemple
+                <ul class="niv2">
+                    <code class="html p-0 m-0">                   
+                        <li class="p-0 m-0">		
+                            <pre>
+    protected function getConfiguration( $label, $placeholder ) {
+        return [
+            'label' => $label,
+            'attr' => [
+                'placeholder' => $placeholder
+            ]
+        ];
+    }
+                            </pre>
+                        </li>
+                    </code>
+                    <li class="text-muted">les attributs sont donnés dans un tableau</li>
+                </ul>
+
+            </li>
+        </ul>
+    <li>dans les formulaires (<span class="tt">xxxxType.php</span>) utilisant <span class="tt">getConfiguration</span> remplacer <span class="tt">extends AbstractType</span> par <span class="tt">extends ApplicationType</span></li>
+</ol>
+
+
+
+{% endblock %}
