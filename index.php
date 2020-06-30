@@ -1,6 +1,7 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require 'AppTwigExtension.php';
 
 use Cocur\Slugify\Slugify;
 
@@ -19,6 +20,8 @@ $loader = new \Twig\Loader\FilesystemLoader( __DIR__ . '/templates');
 $twig = new \Twig\Environment($loader, [
     'cache' => false, // __DIR__ . '/templates'kk
 ]);
+
+$twig->addExtension(new AppTwigExtension());
 
 $ext = '.html.twig';
 $pages_h1 = [

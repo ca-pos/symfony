@@ -16,6 +16,9 @@
             {% endfor %}
         </ul>
    </div>
+{% for i in 1..pages_list|length-1 %}
+   {{ pages_list[i] }}<br/>
+{% endfor %}
 {% endblock %}
 
 

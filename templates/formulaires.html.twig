@@ -2,6 +2,7 @@
 
 
 {% block body %}
+
     <ol>
         <li>création d'un formulaire</li>
             <ul class="niv2">
@@ -24,15 +25,16 @@
                             argument 3&nbsp;: un tableau d'options (label, attributs, etc.)
                             <ul>
                                 <li class="text-muted">
-                                    voir <a href="index.php?p={{pages_list[7]}}">ici</a> pour la création d'une classe permettant l'intégration d'une méthode <span class="tt">getConfiguration()</span> qui simplifie le processus de configuration
+                                    voir <a href="index.php?p={{pages_list[findPageNumber('inserer-getconfiguration-dans-une-classe', pages_list)]}}">ici</a> pour la création d'une classe permettant l'intégration d'une méthode <span class="tt">getConfiguration()</span> qui simplifie le processus de configuration
                                 </li>
                             </ul>    
                         </li>
                     </ol>
                 <li>
-                    rappel : pour obtenir le look bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index.php?p={{pages_list[1]}}">ici</a>)
+                    rappel : pour obtenir le look bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index.php?p={{pages_list[findPageNumber('mise-en-place-du-projet',pages_list)]}}">ici</a>)
                 </li>
             </ul>
+        </li>
         <li>
             si le formulaire comporte un champ password,
             <ul class="niv2">
@@ -109,10 +111,7 @@ $hash = $encoder->encodePassword($user,  $user->getHash() );	// le 1er argument 
                     à la première visite de cette page, le formulaire n'a pas encore été soumis, le bloc du <span class="tt">if</span> est donc sauté et on affiche <span class="tt">recipe/new.html.twig</span>&nbsp;; les visites suivantes se font depuis le bouton de soumission du formulaire et le contenu des champs de celui-ci est retourné par la méthode POST&nbsp;; le bloc <span class="tt">if</span> est effectué et on est redirigé vers la route <span class="tt">recipes_show</span> avec le slug correspondant  la recette qui vient d'être soumise ce qui permet de l'afficher.
                 </li>
             </ul>
-
         </li>
     </ol>
-
-
 
 {% endblock %}
