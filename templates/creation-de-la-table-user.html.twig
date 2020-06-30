@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+    <ol>
+        <li>créer une entity User</li>
+        <ul class="niv2">
+            <li>l'entité User doit implémenter la classe UserInterface</li>
+            <ul>
+                <li><span class="tt">class User implements UserInterface</span></li>
+            </ul>
+            <li>et donc contenir les fonctions suivantes</li>
+            <ul>
+                <code class="html p-0 m-0">                   
+                    <li class="p-0 m-0">		
+                        <pre>
+    public function getRoles() {
+        return ['ROLE_USER'];
+    }
+    public function getPassword() {
+        return $this->hash;	// hash contient le mot de passe encodé
+    }
+    public function getSalt() {}   	// inutile avec bcrypt
+    public function getUsername() {
+        return $this->email;	// l'identifiant de connexion
+    }
+    public function eraseCredentials() {}	// utile si stockage de données sensibles (p.ex. mdp)
+                        </pre>
+                    </li>
+                </code>
+  
+            </ul>
+
+        </ul>
+    </ol>
+
+{% endblock %}

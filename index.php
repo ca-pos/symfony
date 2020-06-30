@@ -33,6 +33,9 @@ $pages_h1 = [
     "Suppression d'un attribut dans une table",
     "Formulaires",
     "Insérer getConfiguration dans une classe",
+    "Validation de formulaire",
+    "Unicité d'un élément",
+    "Création de la table User",
 ];
 
 $slug = new Slugify();

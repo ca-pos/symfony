@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<ol>
+    <li>importer la classe
+        <ul class="niv2">
+            <li><span class="tt">use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+            </span></li>
+        </ul>
+    </li>
+
+    <li><span class="text-danger">Attention</span>&nbsp;: pour cette contrainte l'annotation se pose sur la classe entière et non sur l'élément
+    </li>
+    <li>déclarer que dans la classe le champ pseudo, le champ email,  le champ nom, etc. doit être unique&nbsp; : exemple avec le champ pseudo
+        <ul>
+            <code class="html p-0 m-0">                   
+                <li class="p-0 m-0">		
+                    <pre>
+/**
+* @UniqueEntity(
+*   fields={"pseudo"},
+*   message = "Ce pseudo est déjà utilisé, merci d'en choisir un autre"
+* )
+*/
+                    </pre>
+                </li>
+            </code>
+            <li class="text-muted">
+                si plusieurs champs sont déclarés p.ex. <span class="tt">fields = {"pseudo", "email"}</span>, c'est la combinaison pseudo/email qui sera unique mais ni le pseudo ni l'email
+            </li>
+        </ul>
+    </li>
+</ol>
+
+{% endblock %}

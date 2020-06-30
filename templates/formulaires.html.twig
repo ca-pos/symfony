@@ -25,13 +25,18 @@
                             argument 3&nbsp;: un tableau d'options (label, attributs, etc.)
                             <ul>
                                 <li class="text-muted">
-                                    voir <a href="index.php?p={{pages_list[findPageNumber('inserer-getconfiguration-dans-une-classe', pages_list)]}}">ici</a> pour la création d'une classe permettant l'intégration d'une méthode <span class="tt">getConfiguration()</span> qui simplifie le processus de configuration
+                                    voir 
+                                        <a href="index.php?p={{pages_list[findPageNumber('inserer-getconfiguration-dans-une-classe', pages_list)]}}">
+                                            ici
+                                        </a> 
+                                        pour la création d'une classe permettant l'intégration d'une méthode 
+                                        <span class="tt">getConfiguration()</span> qui simplifie le processus de configuration
                                 </li>
                             </ul>    
                         </li>
                     </ol>
                 <li>
-                    rappel : pour obtenir le look bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index.php?p={{pages_list[findPageNumber('mise-en-place-du-projet',pages_list)]}}">ici</a>)
+                    rappel : pour appliquer le style bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index.php?p={{pages_list[findPageNumber('mise-en-place-du-projet',pages_list)]}}">ici</a>)
                 </li>
             </ul>
         </li>
@@ -40,7 +45,7 @@
             <ul class="niv2">
                 <li>injection de dépendance dans les arguments de la fonction correspondante (p.ex. register) pour obtenir l'encodeur&nbsp;:
                 <ul>
-                    <li>                    <span class="tt"> public function register( ..., UserPasswordEncoderInterface $encoder);</span>
+                    <li><span class="tt"> public function register( ..., UserPasswordEncoderInterface $encoder);</span>
                     </li>
                 </ul>
                 </li>
@@ -62,7 +67,12 @@ $hash = $encoder->encodePassword($user,  $user->getHash() );	// le 1er argument 
             <ul class="niv2">
                 <li>le bouton de soumission réaffiche la même page mais avec la requête en POST ce qui indique que le formulaire a été soumis</li>
                 <li>récupération de la requête (dans la fonction create du contrôleur dans l'exemple ci-dessous)</li>
-                <li>pour mettre en place la validation, voir <a href="#">ici</a></li>
+                <li>
+                    pour mettre en place la validation, voir 
+                    <a href="index.php?p={{pages_list[findPageNumber('validation-de-formulaire', pages_list)]}}">
+                        ici
+                    </a>
+                </li>
                 <li>utilisation du manager fourni grâce à  l'injection de dépendance pour sauvegarder le formulaire (persist puis flush)</li>
             </ul>
         </li>

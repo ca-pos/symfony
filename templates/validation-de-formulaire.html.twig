@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <ol>
+        <li>la validation se fait dans l'entité (p.ex. User.php)</li>
+        <li>
+            importer la classe
+            <ul>
+                <li><span class="tt">use Symfony\Component\Validator\Constraints as Assert;</span></li>
+            </ul>
+        </li>
+
+        <li>celle-ci permet de poser des contraintes, sous forme d'annotations</li>
+        <li>liste des contraintes<a href="https://symfony.com/doc/current/reference/constraints.html">ici</a>
+            <ul class="niv2">
+                <li>quelques exemples :</li>
+                    <code class="html p-0 m-0">                   
+                        <li class="p-0 m-0">		
+                            <pre>
+/**
+* @Assert\Url( message = "Url non valide", normalizer = "trim")
+* @Assert\NotBlank(message="Ce champ ne doit pas être vide")
+* @Assert\Length(min=8, minMessage="Le mot de passe doit comporter au moins 8 caractères")
+* @Assert\Email(message = "'{{ value }}' n'est pas une adresse valide")
+*/                        
+                            </pre>
+                        </li>
+                    </code>
+                    <li class="text-muted">
+                        pour assurer l'unicité d'un élément voir la section <a href="index.php?p={{pages_list[findPageNumber('unicite-d-un-element', pages_list)]}}">suivante</a>
+                    </li>
+    
+            </ul>
+        </li>
+    </ol>
+
+{% endblock %}
