@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>dans <span class="tt">AppFixtures.php</span> (voir <a href="index.php?p={{pages_list[findPageNumber('base-de-donnees-et-creation-de-fausses-donnees', pages_list)]}}">ici</a>)</li>
+        <ul class="niv2">
+            <li>ajouter une section pour la création des users</li>
+            <li>ajouter à chaque recette un auteur choisi au hasard dans la liste qui vient d'être créée</li>
+        </ul>
+        <li>charger la fixture</li>
+        <ul class="niv2">
+            <li><span class="tt">php bin/console doctrine:fixtures:load</span></li>
+        </ul>
+        <li>si besoin, ajouter les avatars</li>
+        <ul class="niv2">
+            <li>voir les photos qui peuvent être récupérées ici</li>
+            <li>au niveau de faker, on peut distinguer le prénoms féminins et masculin et ici les photos hommes et femmes
+                <ul class="niv3">
+                    <li><span class="tt">https://randomuser.me/api/portraits/{men|women}/[1-99].jpg</span></li>
+                </ul>
+            </li>
+            <li>charger à nouveau la fixture</li>
+        </ul>
+    </ol>
+
+
+{% endblock %}

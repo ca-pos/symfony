@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <ol>
+        <li>exemple&nbsp;: relation entre la table User et la table Recipe</li>
+        <ul class="niv2">
+            <li>on veut ajouter un champ auteur à la table Recipe</li>
+            <li>et lier la recette à son auteur dans la table User</li>
+        </ul>
+        <li>modifier l'entité Recipe</li>
+        <ul class="niv2">
+            <li><span class="tt">php bin\console make:entity Recipe</span></li> pour ré-ouvrir l'entité Recipe
+            <li>ajouter le champ <span class="tt">author</span></li> et lui donner le type relation <span class="tt">ManyToOne</span> avec la classe User
+            <li>accepter la modification de <span class="tt">User.php</span></li>
+        </ul>
+        <li>migration</li>
+        <ol class="niv2">
+            <li>créer la migration mais <span class="text-danger">NE PAS</span> l'effectuer (voir l'avertissement  <a href="index.php?p={{pages_list[findPageNumber('base-de-donnees-et-creation-de-fausses-donnees', pages_list)]}}">ici</a>)
+            </li>
+            <li>depuis phpadmin</li>
+            <ul class="niv3">
+                <li><span class="text-danger">SUPPRIMER TOUTES LES DONNÉES DE LA TABLE Recipe</span>,    et aussi des tables liées si besoin </li>
+            </ul>
+            <li>effectuer la migration</li>
+        </ol>
+    </ol>
+
+{% endblock %}

@@ -23,6 +23,9 @@
         </div>
 
         {% if  (page != 'accueil') %}
+            {% set np = pages_list [ nextPage( pages_list[page_number], pages_list ) ] %}
+            {% set pp = pages_list [ previousPage( pages_list[page_number], pages_list ) ] %}
+
             <div class="container text-right">
                 <div class="row">
                     <button class="button btn btn-primary m-2 ml-auto">
@@ -32,10 +35,10 @@
                         <a href="javascript:history.back()">Retour dernière page&ensp;<i class="fas fa-arrow-up"></i></a>
                     </button>
                     <button class="button btn btn-primary m-2">
-                        <a href="index.php?p=home"><i class="fas fa-arrow-left"></i>&ensp;Page précédente</a>
+                        <a href="index.php?p={{pp}}"><i class="fas fa-arrow-left"></i>&ensp;Page précédente</a>
                     </button>
                     <button class="button btn btn-primary m-2">
-                        <a href="index.php?p=home">Page suivante&ensp;<i class="fas fa-arrow-right"></i></a>
+                        <a href="index.php?p={{np}}">Page suivante&ensp;<i class="fas fa-arrow-right"></i></a>
                     </button>
                 </div>
         </div>

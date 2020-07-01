@@ -43,6 +43,7 @@ ol {
         color: #F39C12;
     }
     &.niv2>li, &.niv3>li {
+        list-style-type:lower-alpha;
         color: white;
     }
 }

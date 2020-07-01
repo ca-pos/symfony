@@ -34,6 +34,7 @@ ol > li {
   color: #F39C12;
 }
 ol.niv2 > li, ol.niv3 > li {
+  list-style-type: lower-alpha;
   color: white;
 }
 

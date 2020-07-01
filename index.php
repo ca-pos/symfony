@@ -36,6 +36,9 @@ $pages_h1 = [
     "Validation de formulaire",
     "Unicité d'un élément",
     "Création de la table User",
+    "Relation entre tables",
+    "Créer les faux utilisateurs",
+    "Encryptage des mots de passe",
 ];
 
 $slug = new Slugify();

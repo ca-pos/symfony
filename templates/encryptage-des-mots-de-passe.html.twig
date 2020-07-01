@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>encryptage du mot de passe pour les utilisateurs factices</li>
+        <li>
+            ouvrir <span class="tt">config/packages/security.yaml</span> 
+        </li>
+        <li> y ajouter les lignes suivantes
+            (<span class="text-danger">ATTENTION</span>&nbsp;: indenter avec des tabulations)
+            <ul>
+                <code class='html p-0 m-0'>
+                    <li class='p-0 m-0'>
+                        <pre>
+    security:
+    	encoders:
+    		App\Entity\User:
+    			algorithm: bcrypt	#encoder les éléments de User avec bcrypt
+                        </pre>
+                    </li>
+                </code>
+            </ul>
+        </li>
+        <li>
+            dans <span class="tt">AppFixtures.php</span>, créer un constructeur
+            <ul>
+                <code class='html p-0 m-0'>
+                    <li class='p-0 m-0'>
+                        <pre>
+	private $encoder;
+	public function __construct(UserPasswordEncoderInterface $encoder) {    # permet d'utiliser $this->encoder
+		$this->encoder = $encoder;                                      # dans les fonctions de Fixtures
+	}                                                                       # notamment pour le password dans la
+                                                                                # fonction load
+                        </pre>
+                    </li>
+                </code>
+            </ul>    
+        </li>
+        <li>
+            dans la fonction load de <span class="tt">AppFixtures.php</span>, ajouter
+            <ul>
+                <code class='html p-0 m-0'>
+                    <li class='p-0 m-0'>
+                        <pre>
+	$hash = $this->encoder->encodePassword($user, 'password');  # ici password est fixé à password
+	$user->setHash($hash);                                      # il faudra y mettre un vrai password
+                        </pre>
+                    </li>
+                </code>
+            </ul>    
+        </li>   
+    </ol>
+
+{% endblock %}
