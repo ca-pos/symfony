@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            afficher des menus différents selon qu'un utilisateur est connecté ou pas
+        </li>
+        <li>si un utilisateur est connecté, la variable app.user n'est pas nulle</li>
+        <li>tester cette variable pour afficher</li>
+        <ul class="niv2">
+            <li>le menu Déconnexion si un utilisateur est connecté</li>
+            <li>les menus Connexion et S'inscrire sinon</li>
+        </ul>
+        <li>dans le projet symbnb, ce test est fait dans <span class="tt">partials/header.html.twig</span></li>
+    </ol>
+{% endblock %}

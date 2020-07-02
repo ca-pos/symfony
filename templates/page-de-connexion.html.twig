@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set account = "{{path('account_login')}}" %}
+    {% set ifHasError1 = "{% if hasError %}" %}
+    {% set ifHasError2 = "<div class='alert alert-danger'>
+            Erreur d'identifiant ou de mot de passe
+        </div>" %}
+    {% set ifHasError3 = "{% endif %}" %}
+    <ol>
+        <li>
+            revenir dans <span class="tt">security.yaml</span> pour y ajouter un provider (ici ce sera la base de données)
+            <ul>
+                <li>
+                    <code class='html p-0 m-0'>
+                        <li class='p-0 m-0'>
+                            <pre>
+    providers:
+		in_database:	# provider est une bdd (mais l'appellation est ici quelconque, p.ex. toto)
+			entity:                         # ce provider utilise une entity
+				class: App\Entity\User	# ici l'entité User
+				property: email		# identifiant de connexion
+                            </pre>
+                        </li>
+                    </code>
+                </li>
+            </ul>
+        </li>
+        <li>
+            créer le contrôleur
+            <ul class="niv2">
+                <li><span class="tt">php bin/console make:controller AccountController</span></li>
+                <li>et le modifier selon besoins</li>
+                <ul>
+                    <li class="text-muted">en particulier, établir la route : p.ex. <span class="tt">@Route("/login", name="account_login")</span></li>
+                </ul>
+            </ul>
+        </li>
+        <li>
+            création du formulaire (à faire plutôt à la main)
+            <ul class="niv2">
+                <li>
+                    un form classique : identifiant (required), mdp (required) et un bouton de soumission
+                    <ul>
+                        <li>
+                            <span class="text-danger">Attention</span>&nbsp;: pour que Symfony puisse gérer la connexion il faut que :
+                        </li>
+                        <ul>
+                            <li>l'input du champ qui sert d'identifiant (souvent email ou pseudo) doit avoir comme name <strong class="text-danger">_username</strong><br/></li>
+                            <li>l'input du champ password doit avoir comme name <strong class="text-danger">_password</strong></li>
+                        </ul>
+                    </ul>
+                </li>
+                <li>
+                    envoi des informations
+                    <ul class="niv3">
+                        <li>sur la même route que que le login</li>
+                        <li>
+                            c.-à-d. qu'on aura ici dans le champ action du formulaire (form)
+                            <ul>
+                                <li><span class="tt"> {{account}}</span></li>
+                            </ul>
+                        </li>
+                        <li>demander à symfony d'intercepter le formulaire de procéder à l'authentification et la connexion</li>
+                        <li>pour cela, ajouter dans <span class="tt">security.yaml</span></li>
+                        <ul>
+                            <li>
+                                <code class='html p-0 m-0'>
+                                    <li class='p-0 m-0'>
+                                        <pre>
+	firewalls:
+		main:
+			provider: in_database
+			form_login:
+				login_path: account_login
+				check_path: account_login
+                                        </pre>
+                                    </li>
+                                </code>
+                            </li>
+                        </ul>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            gérer les erreurs de connexion (identifiant et/ou mdp incorrects)
+            <ul class="niv2">
+                <li>dans fonction login, injection la dépendance : <span class="tt">AuthenticationUtils $utils</span></li>
+                <li>la méthode <span class="tt">$utils->getLastAuthenticationError()</span> renvoie null si pas d'erreur</li>
+                <li>donc <span class="tt">$error = $utils->getLastAuthenticationError();</span> sera faux si pas d'erreur</li>
+                <li>
+                    ce qui permet de passer à twig en second argument le booléen
+                    <ul>
+                        <li><span class="tt">['hasError' => $error !== null]</span></li>
+                    </ul>
+                </li>
+                <li>
+                    dans le login.html.twig, ajouter
+                    <ul>
+                        <li>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre>
+    {{ifHasError1}}
+        {{ifHasError2}}
+    {{ifHasError3}}
+                                </pre>
+                            </li>
+                        </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="tt">$utils</span> fournit également la méthode <span class="tt">getLastUsername()</span>
+                    <ul>
+                        <li>qu'on peut passer à twig pour préremplir le champ identifiant (attribut value)</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

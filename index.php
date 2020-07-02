@@ -39,6 +39,10 @@ $pages_h1 = [
     "Relation entre tables",
     "Créer les faux utilisateurs",
     "Encryptage des mots de passe",
+    "Page de connexion",
+    "Déconnexion",
+    "Page d'inscription",
+    "Barre de navigation adaptative",
 ];
 
 $slug = new Slugify();

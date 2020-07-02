@@ -9,12 +9,10 @@
     </head>
     <body>
 
-        {% import 'macros.html.twig' as macros %}
-
         <div class="container">
             {% if  (page != 'accueil') %}
                 <h1 class="mt-3 mb-5">
-                    {{ macros.write_title(pages_h1[page_number]) }}
+                    {{pages_h1[page_number]}}
                 </h1>
             {% endif %}
 

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            dans le AccountController, créer une fonction vide <span class="tt">logout()</span> (le nom est indifférent, c'est Symfony qui gère la déconnexion)
+        </li>
+        <li>
+            ajouter dans <span class="tt">security.yaml</span>
+            <ul>
+                <li>
+                    <code class='html p-0 m-0'>
+                        <li class='p-0 m-0'>
+                            <pre>
+    firewalls:
+		main:
+			logout:
+				path: account_logout	# route pour la déconnexion
+				target: account_login	# où aller après la déconnexion
+                            </pre>
+                        </li>
+                    </code>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}
