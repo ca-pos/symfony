@@ -43,6 +43,9 @@ $pages_h1 = [
     "Déconnexion",
     "Page d'inscription",
     "Barre de navigation adaptative",
+    "Page de modification de profil",
+    "Page de modification du mot de passe",
+    "Ajouter une erreur à un champ",
 ];
 
 $slug = new Slugify();

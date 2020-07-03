@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            dans le <span class="tt">AccountController.php</span>
+            <ul class="niv2">
+                <li>
+                    ajouter la fonction <span class="tt">updatePassword</span> avec la route <span class="tt">account/update-password</span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            créer le twig
+        </li>
+        <li>
+            on veut utiliser un vrai formulaire symfony
+            <ul class="niv2">
+                <li>
+                    pour cela, il faut créer une entité factice <span class="tt">PasswordUpdate.php</span>
+                    <ul class="niv3">
+                        <li>
+                            comportant les champs <span class="tt">$oldPassword</span>, <span class="tt">$newPassword</span> et <span class="tt">$confirmPassword</span>
+                        </li>
+                        <li> et dans laquelle on supprimera toutes les annotations <span class="tt">@ORM</span>, <span class="tt">Id</span>, <span class="tt">>getId()</span</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            créer le formulaire (dans le dossier <span class="tt">Form</span>)
+            <ul class="niv2">
+                <li>
+                    <span class="tt">PasswordUpdateType.php</span>
+                </li>
+                <li>
+                    basé sur aucune entité (car <span class="tt">PasswordUpdate</span> est une entité rendue factice par suppression des annotations <span class="tt">@ORM</span>)
+                </li>
+                <li>
+                    le builder doit être réalisé entièrement à la main avec les champs ancien mdp, nouveau mdp, confirmez mdp
+                </li>
+            </ul>
+        </li>
+        <li>
+            dans la fonction <span class="tt">updatePassword</span> du <span class="tt">AccountController.php</span>
+            <ul class="niv2">
+                <li>
+                    vérifier que l'ancien mdp est correct
+                    <ul class="niv3">
+                        <li>
+                            obtenir l'utilisateur connecté, et donc son mdp, par 
+                            <ul>
+                                <li><span class="tt">$this->getUser();</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            vérifier que le mdp du formulaire correspond à celui de la base de données
+                            <ul>
+                                <li>
+                                    <span class="tt">if( !password_verify($passwordUpdate->getOldPassword(), $user->getHash())) { ... }</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            ajouter une erreur au champ oldPassword (voir <a href="">ci-dessous</a> )
+        </li>
+    </ol>
+{% endblock %}

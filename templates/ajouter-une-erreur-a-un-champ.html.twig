@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            l'ancien mdp se trouve dans la bdd, sa vérification ne peut donc pas être faite avec les annotations
+        </li>
+        <li>
+            (voir la documentation API symfony pour le composant form)
+        </li>
+        <li>
+            dans Symfony, un formulaire global est un ensemble de petits formulaires partiels
+            <ul class="niv2">
+                <li>
+                    si <span class="tt">$form</span> est un formulaire à plusieurs champs dont le champ <span class="tt">oldPassword</span>
+                    <ul>
+                        <li>
+                            <span class="tt">$form->get('oldPassword')</span> est un formulaire à un seul champ
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    à ce formulaire à un seul champ, on peut appliquer la méthode <span class="tt">addError()</span> qui prend un paramètre de type <span class="tt">FormError</span>
+                    <ul>
+                        <li>
+                            <span class="tt">$form->get('oldPassword')->addError( new FormError( param ) )</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    pour créer un objet de type <span class="tt">FormError</span>, il faut lui passer en paramètre le message d'erreur
+                </li>
+                <li>
+                    d'où, finalement :
+                    <ul>
+                        <li><span class="tt">$form->get('oldPassword')->addError( new FormError( "Mot de passe incorrect" ));</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}
