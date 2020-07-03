@@ -7,6 +7,21 @@
             <ul class="niv2">
                 <li>
                     ajouter la fonction <span class="tt">updatePassword</span> avec la route <span class="tt">account/update-password</span>
+                    <ul class="niv3">
+                        <li>
+                            dans laquelle il faudra ajouter, après création de la classe <span class="tt">PasswordUpdate</span> et du formulaire <span class="tt">PasswordUpdateType</span> ci-après
+                            <ul>
+                                <code class='html p-0 m-0'>
+                                    <li class='p-0 m-0'>
+                                        <pre>
+    $passwordUpdate = new PasswordUpdate();
+    $form = $this->createForm(PasswordUpdateType::class, $passwordUpdate);
+                                        </pre>
+                                    </li>
+                                </code>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
@@ -17,12 +32,44 @@
             on veut utiliser un vrai formulaire symfony
             <ul class="niv2">
                 <li>
-                    pour cela, il faut créer une entité factice <span class="tt">PasswordUpdate.php</span>
+                    pour cela, il faut créer une entité factice <span class="tt">PasswordUpdate.php</span> (c.-à.-d. qu'il s'agira d'une simple classe)
                     <ul class="niv3">
                         <li>
                             comportant les champs <span class="tt">$oldPassword</span>, <span class="tt">$newPassword</span> et <span class="tt">$confirmPassword</span>
                         </li>
-                        <li> et dans laquelle on supprimera toutes les annotations <span class="tt">@ORM</span>, <span class="tt">Id</span>, <span class="tt">>getId()</span</li>
+                        <li>
+                            et dans laquelle on supprime toutes les annotations <span class="tt">@ORM</span>, <span class="tt">Id</span>, <span class="tt">>getId()</span> (<span class="text-danger">mais seulement après avoir créé le formulaire au point suivant</span>)
+                        </li>
+                        <li>
+                            puis on ajoute 
+                            <ul>
+                                <li>à la classe : <span class="tt">use Symfony\Component\Validator\Constraints as Assert;</span></li>
+                                <li>
+                                    à l'attribut  <span class="tt">$newPassword</span><br/>
+<code class='html p-0 m-0'>
+    <li class='p-0 m-0'>
+        <pre>
+    /**
+     * @Assert\Length( min = 8, minMessage="Le mot de passe doit faire au moins 8 caractères")
+     */
+        </pre>
+    </li>
+</code>
+                                </li>
+                                <li>
+                                    à l'attribut <span class="tt">$confirmPassword</span><br/>
+<code class='html p-0 m-0'>
+    <li class='p-0 m-0'>
+        <pre>
+    /**
+     *@Assert\EqualTo( propertyPath="newPassword", message="Les mots de passe sont différents")
+     */
+        </pre>
+    </li>
+</code>                
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -66,7 +113,7 @@
             </ul>
         </li>
         <li>
-            ajouter une erreur au champ oldPassword (voir <a href="">ci-dessous</a> )
+            le <span class="tt">if</span> ci-dessus permet d'ajouter une erreur au champ oldPassword (voir <a href="index.php?p={{pages_list[findPageNumber("ajouter-une-erreur-a-un-champ",pages_list)]}}">ci-après</a> )
         </li>
     </ol>
 {% endblock %}

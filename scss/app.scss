@@ -19,7 +19,7 @@ ul {
     list-style: none;
     &.home {
         text-align: center;
-        font-size: 150%;
+        font-size: 120%;
     }
     & >li {
         color: white;
@@ -35,6 +35,9 @@ ul {
         font-size: 150%;
         position: relative;
         top: .3rem;
+    }
+    &.niv4 > li:before {
+        content: '.';
     }
 }
 //---------------------------

@@ -12,7 +12,7 @@ ul {
 }
 ul.home {
   text-align: center;
-  font-size: 150%;
+  font-size: 120%;
 }
 ul > li {
   color: white;
@@ -28,6 +28,9 @@ ul.niv3 > li:before {
   font-size: 150%;
   position: relative;
   top: 0.3rem;
+}
+ul.niv4 > li:before {
+  content: ".";
 }
 
 ol > li {
