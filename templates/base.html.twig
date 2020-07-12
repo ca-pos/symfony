@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../css/bootstrap.min.css" />
         <link rel="stylesheet" href="../css/app.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <title>{{ pages_h1[page_number]}}</title>
+        <title>{{ pages_h1[section][current]}}</title>
     </head>
     <body>
 
         <div class="container">
-            {% if  (page != 'accueil') %}
+            {% if  (slug != 'accueil') %}
                 <h1 class="mt-3 mb-5">
-                    {{pages_h1[page_number]}}
+                    {{pages_h1[section][current]}}
                 </h1>
             {% endif %}
 
             {% block body %}
             {% endblock body %}
         </div>
+        {% if  (slug != 'accueil') %}
 
-        {% if  (page != 'accueil') %}
-            {% set np = pages_list [ nextPage( pages_list[page_number], pages_list ) ] %}
-            {% set pp = pages_list [ previousPage( pages_list[page_number], pages_list ) ] %}
+            {% set np = nextPage(section, current, pages_slug) %}
+            {% set pp = previousPage(section, current, pages_slug) %}
 
             <div class="container text-right">
                 <div class="row">

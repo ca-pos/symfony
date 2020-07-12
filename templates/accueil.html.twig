@@ -3,21 +3,36 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-   {{ pages_list[pages_list|length-1]}}.html.twig
-   <div class="container">
-       <h1 class="text-center my-3">Développer une application avec Symfony</h1>
-       <h4 class="text-center mb-5">D'après les projets symbnb et blog_cuisine (Symfony version 4.4)</h4>
+
+    {% import "macros.twig" as macros %}
+
+    <div class="container">
+        <h1 class="text-center my-3">Développer une application avec Symfony</h1>
+        <h4 class="text-center mb-5">D'après les projets symbnb et blog_cuisine (Symfony version 4.4)</h4>
         <ul class="home">
-            {% for i in 1..pages_list|length-1 %}
-                <li>
-                    <a href="index.php?p={{pages_list[i]}}">
-                        {{pages_h1[i]}}
-                    </a>
-                </li>
-            {% endfor %}
+            <div class="row">
+
+                <div class="col-md-6">
+                    {% set key_index = 0 %}
+                    {{ macros.section( key_index ) }}
+                </div>
+
+                <div class="col-md-6">
+                    {% set key_index = key_index + 1 %}
+                    {{ macros.section( key_index )}}
+                    {% set key_index = key_index + 1 %}
+                    {{ macros.section( key_index )}}
+                </div>
+
+            </div>
         </ul>
    </div>
-{% for i in 1..pages_list|length-1 %}
-   {{ pages_list[i] }}<br/>
-{% endfor %}
+    {% for key in pages_slug|keys %}
+        {% for i in 0..pages_slug[key]|length-1 %}
+           {{ pages_slug[key][i] }}<br/>
+        {% endfor %}
+        <br/>
+       <span class="text-warning">{{ pages_slug[key][pages_slug[key]|length-1]}}.html.twig</span>
+       <br/><br/>
+    {% endfor %}
 {% endblock %}

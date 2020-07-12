@@ -2,7 +2,7 @@
 
 
 {% block body %}
-
+{{ page }}<br>
     <ol>
         <li>création d'un formulaire</li>
             <ul class="niv2">
@@ -26,7 +26,7 @@
                             <ul>
                                 <li class="text-muted">
                                     voir 
-                                        <a href="index.php?p={{pages_list[findPageNumber('inserer-getconfiguration-dans-une-classe', pages_list)]}}">
+                                        <a href="index.php?p=inserer-getconfiguration-dans-une-classe">
                                             ici
                                         </a> 
                                         pour la création d'une classe permettant l'intégration d'une méthode 
@@ -36,12 +36,11 @@
                         </li>
                     </ol>
                 <li>
-                    rappel : pour appliquer le style bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index.php?p={{pages_list[findPageNumber('mise-en-place-du-projet',pages_list)]}}">ici</a>)
+                    rappel : pour appliquer le style bootsrap, ajouter le <span class="tt">form_theme</span> dans le fichier <span class="tt">config/packages/twig.yaml</span> (voir <a href="index?p=mise-en-place-du-projet">ici</a>)
                 </li>
             </ul>
         </li>
-        <li>
-            si le formulaire comporte un champ password,
+        <li>si le formulaire comporte un champ password,
             <ul class="niv2">
                 <li>injection de dépendance dans les arguments de la fonction correspondante (p.ex. register) pour obtenir l'encodeur&nbsp;:
                 <ul>
@@ -69,7 +68,7 @@ $hash = $encoder->encodePassword($user,  $user->getHash() );	// le 1er argument 
                 <li>récupération de la requête (dans la fonction create du contrôleur dans l'exemple ci-dessous)</li>
                 <li>
                     pour mettre en place la validation, voir 
-                    <a href="index.php?p={{pages_list[findPageNumber('validation-de-formulaire', pages_list)]}}">
+                    <a href="index.php?p=validation-de-formulaire">
                         ici
                     </a>
                 </li>

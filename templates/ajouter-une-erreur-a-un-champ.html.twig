@@ -31,7 +31,7 @@
                     pour créer un objet de type <span class="tt">FormError</span>, il faut lui passer en paramètre le message d'erreur
                 </li>
                 <li>
-                    d'où, finalement on ajoute dans le <span class="tt">if( !password_verify($passwordUpdate->getOldPassword(), $user->getHash())) { ... }</span> (<a href="index.php?p={{pages_list[findPageNumber("page-de-modification-du-mot-de-passe", pages_list)]}}">ici</a> ):
+                    d'où, finalement on ajoute dans le <span class="tt">if( !password_verify($passwordUpdate->getOldPassword(), $user->getHash())) { ... }</span> (<a href="index.php?p=page-de-modification-du-mot-de-passe">ici</a> ):
                     <ul>
                         <li><span class="tt">$form->get('oldPassword')->addError( new FormError( "Mot de passe incorrect" ));</span></li>
                     </ul>
