@@ -1,6 +1,42 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {{ col }}
-    {{ val }}
+<code class="html p-0 m-0">                   
+    <pre>
+namespace App\Form;
+
+use Symfony\Component\Form\AbstractType;
+
+class ApplicationType extends AbstractType {
+
+     /**
+     * Retourne la configuration d'un champ
+     *
+     * @param string $label
+     * @param string $placeholder
+     * 
+     * @return array
+     */
+    protected function getConfiguration( $label, $placeholder, $options = [] ) {
+        return array_merge( [
+            'label' => $label,
+            'attr' => [
+                'placeholder' => $placeholder
+            ]
+        ], $options );
+    }
+
+}
+    </pre>
+    <ul class="niv1">
+        <li>
+            cette version de <span class="tt">getConfiguration</span>
+            retourne le label et un attribut, le placeholder
+        </li> 
+        <li>
+            il est possible d'ajouter ponctuellement un tableau d'autres options comme paramètre 3&nbsp;; par défaut, ce tableau est vide&nbsp;; il est ajouté (<span class="tt">merge_array()</span>) aux options <span class="tt">label</span> et <span class="tt">attr</span>
+        </li>
+    </ul>
+</code>
+
 {% endblock %}

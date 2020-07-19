@@ -1,5 +1,140 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    
+    <ol>
+        <li>make
+        </li>
+            <ul class="niv2">
+                <li>contrôleur
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console make:controller {nom   du    contrôleur}</span>
+                        </li>
+                        <li>
+                            <span class="text-muted">nom de contrôleur : <span      class="tt">XxxxYyyyController</span> (p.ex.     HomeController,  AdController, etc.)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>entités
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console make:entity {nom de l'entité}</span>
+                        </li> 
+                        <li>
+                        <span class="text-muted">nom de l'entité <span class="tt">XxxxYyyyy</span> (p.ex. Recipe, Ad, User, etc.)</span>
+                        </li>
+                        <li>
+                            <span class="text-muted">cas particulier : <span class="tt">PasswordUpdate</span></span>
+                        </li>
+                    </ul>
+                </li>
+                <li>formulaires
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console make:form {nom du formulaire}</span>
+                        </li>
+                        <li><span class="text-muted">nom du formulaire <span class="tt">XxxxYyyyType</span> (p.ex. RegistrationType, AccountType, ApplicationType, etc.)</span>
+                        </li>
+                        <li>
+                            <span class="text-muted"> cas particulier à nouveau : 
+                                <span class="tt">PasswordUpdateType
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+                <li>en relation avec doctrine (voir ci-après)
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console make:migration</span>
+                            <ul>
+                                <li class="text-muted">création des fichiers de migration utilisés par doctrine</li>
+                            </ul>
+                        </li>
+                            <li>
+                                <span class="tt">php bin/console make:fixtures</span>
+                                <ul>
+                                    <li class="text-muted">création du fichier <span class="tt">AppFixtures.php</span> qui permet de créer les fausses données à sauvegarder par doctrine
+                                    </li>
+                                </ul>
+                            </li>
+                    </ul>
+                </li>
+            </ul>
+        <li>doctrine
+            <ul class="niv2">
+                <li>création d'une base de données
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console doctrine:database:create</span>
+                            <ul>
+                                <li>
+                                    <span class="text-muted">crée une base de   données   à partir des informations contenues dans le fichier<span class="tt">.env</span></ span> (voir  <a href="index.php?     p=base-de-donnees-et-creation-de-fausses-donnees">ici</a>)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>sauvegarde d'une table dans la base de données
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console doctrine:migrations:migrate</span>
+                            <ul>
+                                <li>
+                                    <span class="text-muted">utilise le fichier de migration créé ci-dessus pour effectuer la sauvegarde de la table</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="tt">php bin/console doctrine:migrations:diff</span>
+                            <ul>
+                                <li>
+                                    <span class="text-muted">lorsqu'on supprime un attribut dans une table,     cette commande permet de créer le nouveau fichier de migration</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted">ne pas oublier de refaire le migrate</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>sauvegarde des fausses données</li>
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console doctrine:fixtures:load</span>
+                            <ul>
+                                <li class="text-muted">
+                                    une fois édité le fichier <span class="tt">AppFixtures.php</span> créé ci-dessus, cette commande permet de sauvegarder le jeu de fausses données
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+            </ul>
+        </li>
+        <li>debug
+            <ul class="niv2">
+                <li>
+                    en relation avec les formulaires
+                    <ul>
+                        <li>
+                            <span class="tt">php bin/console debug:form {nom du formulaire}</span><br/>
+                            <ul>
+                                <li class="text-muted">
+                                    affiche, notamment, la liste des paramètres configurable dans le <span class="tt">$builder</span>. Les autres attributs <span class="tt">html</span> valides sont passés dans le tableau <span class="tt">attr</span>
+                                </li>
+                                <li>
+                                    <span class="text-muted">voir 
+                                    <a href="index.php?p=getconfiguration">ici</a> et, pour la documentation officielle, 
+                                    <a href="https://symfony.com/doc/current/reference/forms/types/form.html">ici</a></span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <ul>
+        
+    </ul>
 {% endblock %}

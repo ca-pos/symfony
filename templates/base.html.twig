@@ -11,6 +11,8 @@
 
         <div class="container">
             {% if  (slug != 'accueil') %}
+                {% set folio = current + 1 %}
+                <p class="font-italic text-center">{{section}}, {{folio}}</p>
                 <h1 class="mt-3 mb-5">
                     {{pages_h1[section][current]}}
                 </h1>

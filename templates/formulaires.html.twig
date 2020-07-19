@@ -94,7 +94,7 @@ $hash = $encoder->encodePassword($user,  $user->getHash() );	// le 1er argument 
                     <li class="p-0 m-0">		
                         <pre>
     public function create(Request $request, EntityManagerInterface $manager {
-           	$recipe = new Recipe();
+	$recipe = new Recipe();
     	$form = $this->createForm(RecipeType::class, $recipe);
     	// récupérer les éléments de la requête, notamment le POST
     	$form->handleRequest($request);

@@ -19,7 +19,14 @@ ul {
     list-style: none;
     &.home {
         text-align: center;
-        font-size: 120%;
+        font-size: 100%;
+    }
+    &.niv1 >li::before {
+        content: '___________';
+        font-size: 1.7px;
+        background-color: white;
+        position: relative;
+        bottom: 2px;
     }
     & >li {
         color: white;

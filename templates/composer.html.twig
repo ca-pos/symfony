@@ -1,5 +1,30 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    
+    <ol>
+        <li>
+            composer create-project symfony/website-skeleton {nom-du-projet} ^{version-de-symfony}<br/>
+            <span class="text-muted">initialisation d'un projet complet (website-skeleton)</span>
+        </li>
+        <li>
+            composer require symfony/apache-pack<br/>
+            <span class="text-muted">pour avoir la barre de débogage</span>
+        </li>
+        <li>
+            composer require symfony/profiler-pack<br/>
+            <span class="text-muted">pour avoir la barre de débogage(peut-être inutile, à vérifier)</span>
+        </li>
+        <li>
+            composer require orm-fixtures --dev<br/>
+            <span class="text-muted">pour fabriquer un jeu de données fictives</span>
+        </li>
+        <li>
+            composer require fzaninotto/faker<br/>
+            <span class="text-muted">permet de disposer d'éléments (lorem, nom, prénom, etc.) pour alimenter les données fictives</span>
+        </li>
+        <li>
+            composer require cocur/slugify<br/>
+            <span class="text-muted">pour générer automatiquement les «&nbsp;slug&nbsp; »</span>
+        </li>
+    </ol>
 {% endblock %}

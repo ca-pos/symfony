@@ -8,7 +8,7 @@
     sous forme d'un lien cliquable
     #}
     {% set subtitle = pages_h1|keys[key_index] %}
-    <h3 class="mt-3 mb-3">{{subtitle}}</h3>
+    <h3 class="mt-3 mb-3 h4">{{subtitle}}</h3>
     {% for i in 0..pages_slug[subtitle]|length-1 %}
         <li>
             <a href="index.php?p={{pages_slug[subtitle][i]}}">

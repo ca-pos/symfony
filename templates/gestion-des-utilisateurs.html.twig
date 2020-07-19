@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <ol>
+        <li>
+            <span class="tt">make UserController</span> qui crée une fonction <span class="tt">index.php</span>
+        </li>
+        <li>
+            <span class="tt">Route /user/{slug} "user_show"</span>
+        </li>
+        <li>
+            dans les paramètres de <span class="tt">index.php</span> passer l'argument <span class="tt">User $user</span> (conversion de paramètres)
+        </li>
+        <li>
+            et on passe le <span class="tt">$user</span> à twig (paramètre 2 du render <span class="tt">["user" => $user]</span>)
+        </li>
+        <li>
+            dans le twig, affichage du profil de l'utilisateur : nom, présentation, résumé des annonces, etc.
+        </li>
+    </ol>
+    
+{% endblock %}

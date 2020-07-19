@@ -52,14 +52,21 @@ $pages_h1 = [
      "Page de modification de profil",
      "Page de modification du mot de passe",
      "Ajouter une erreur à un champ",
+	 "Gestion des utilisateurs",
         ],
-     "Exemples" => [
+     "Exemples de code" => [
          "getConfiguration",
         ],
     "Ligne de commande" => [
         "composer",
         "php bin/console",
-    ],
+        ],
+    "Résumé du projet symBnB" => [
+        "Controller",
+        "Entities",
+        "Forms",
+        "Templates",
+        ]
 ];
 
 
