@@ -15,8 +15,7 @@
     security:
     	encoders:
     		App\Entity\User:
-    			algorithm: bcrypt	#encoder les éléments de User avec bcrypt
-                        </pre>
+    			algorithm: bcrypt	#encoder les éléments de User avec bcrypt</pre>
                     </li>
                 </code>
             </ul>
@@ -31,8 +30,7 @@
 	public function __construct(UserPasswordEncoderInterface $encoder) {    # permet d'utiliser $this->encoder
 		$this->encoder = $encoder;                                      # dans les fonctions de Fixtures
 	}                                                                       # notamment pour le password dans la
-                                                                                # fonction load
-                        </pre>
+                                                                                # fonction load</pre>
                     </li>
                 </code>
             </ul>    
@@ -44,8 +42,7 @@
                     <li class='p-0 m-0'>
                         <pre>
 	$hash = $this->encoder->encodePassword($user, 'password');  # ici password est fixé à password
-	$user->setHash($hash);                                      # il faudra y mettre un vrai password
-                        </pre>
+	$user->setHash($hash);                                      # il faudra y mettre un vrai password</pre>
                     </li>
                 </code>
             </ul>    

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            dans le menu &laquo;&nbsp;Mon Compte&nbsp;&raquo;
+        </li>
+        <li>
+            reprendre les parties pertinentes du code sur bootswatch (ou sur le site bootstrap)
+            <ul class="niv2">
+                <li>
+                    ajouter à la div de classe <span class="tt">.dropdown-menu</span>
+                    <ul class="niv3">
+                        <li>
+                            <span class="tt">aria-labelledby="id"</span> où <span class="tt">#id</span> est l'id de la div de classe <span class="tt">.nav-link.dropdown-toggle</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    éventuellement, ajouter à la div de classe <span class="tt">.dropdown-menu</span>
+                    <ul class="niv3">
+                        <li>
+                            la classe <span class="tt">.dropdown-menu-right</span>, pour coller le menu utilisateur à droite
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

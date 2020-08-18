@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            dans la pages <span class="tt">show.html.twig</span> (et éventuellement <span class="tt">_ad.html.twig</span>), on peut ajouter un bouton supprimer une annonce
+            <ul class="niv2">
+                <li>
+                    l'annonce doit appartenir à l&apos;utilisateur connecté (voir le <span class="tt">if</span> de la section <a href="index.php?p=personnaliser-certaines-pages"> précédente</a>)
+                </li>
+                <li>
+                    on ajoute un composant javascript pour demander confirmation de la suppression (voir <a href="index.php?p=javascripts#confirmation_suppression">ici</a>)
+                </li>
+                <li>
+                    créer la fonction <span class="tt">delete()</span> dans le <span class="tt">AdController</span> (voir un exemple de code <a href="index.php?p=delete">ici</a>) 
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

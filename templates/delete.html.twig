@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<code class='html p-0 m-0'>
+        <pre>
+    /**
+     * suppression d'une annonce
+     * 
+     * @Route("/ads/{slug}/delete", name="ads_delete")
+     * @Security("is_granted('ROLE_USER') and user == ad.getAuthor()", message="...")
+     * 
+     * @param Ad $ad
+     * @param EntityManagerInterface $manager
+     * 
+     * @return Response
+     */
+
+    public function delete(Ad $ad, EntityManagerInterface $manager) {
+        $manager->remove($ad);
+        $manager->flush();
+
+        $this->addFlash(
+        '	success',
+        '	L\'annonce <strong>{$ad.getTitle()}</strong> a bien été supprimée'
+        );
+
+        return $this->redirectToRoute('ads_index');
+    }</pre>
+</code>
+{% endblock %}

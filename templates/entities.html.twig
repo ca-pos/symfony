@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nom de l'entité</th>
+                <th scope="col">Variables</th>
+                <th scope="col">Fonctions ajoutées</th>
+                <th scope="col">Commentaires</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-dark">
+                <td>Ad</td>
+                <td>title, slug, price, introduction, content, coverImage, rooms</td>
+                <td>initializeSlug</td>
+                <td>éléments d'une annonce</td>
+            </tr>
+            <tr class="table-dark">
+                <td>Image</td>
+                <td>url, caption, ad</td>
+                <td></td>
+                <td>éléments d'une image (coverImage et images ajoutées)</td>
+            </tr>
+            <tr class="table-dark">
+                <td>passwordUpdate</td>
+                <td>oldPassword, newPassword, confirmPassword</td>
+                <td></td>
+                <td>ignorée par Doctrine, supprimer les annotations ORM</td>
+            </tr>
+            <tr class="table-dark">
+                <td>Role</td>
+                <td>title, users</td>
+                <td></td>
+                <td>liste des rôles d'un utilisateur (USER_ROLE, ADMIN_ROLE, MANAGER_ROLE, etc.)</td>
+            </tr>
+            <tr class="table-dark">
+                <td>User</td>
+                <td>firstName, lastName, email, picture, hash, passwordConfirm, introduction, description, slug, ads</td>
+                <td>getFullname, initializeSlug, getRoles, getPassword, getSalt, eraseCredentials</td>
+                <td>les 4 dernières fonctions ajouteée servent à implémenter UserInterface, les 2 dernières sont vides</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            dans la fonction create de l'AdController
+            <ul class="niv2">
+                <li>
+                    avant de persister
+                    <ul>
+                        <li><span class="tt">$ad->setAuthor($this->getUser());</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

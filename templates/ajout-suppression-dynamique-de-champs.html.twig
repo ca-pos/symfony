@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            l'ajout du <span class="tt">'allow_add'=>true</span> dans le <span class="tt">$builder</span>
+            <ul class="niv2">
+                <li>
+                    permet d'ajouter des items dans la collection
+                </li>
+                <li>
+                    fait apparaître un bloc <span class="tt">data-prototype</span>
+                    <ul class="niv3">
+                        <li>
+                            le bloc <span class="tt">data-prototype</span> contient le code nécessaire pour créer les champs <span class="tt">url</span> et <span class="tt">caption</span> (voir <a href="index.php?p=sous-formulaires-avec-collectiontype">Sous-formualaires avec CollectionType</a> )
+                        </li>
+                        <li>
+                            ce code peut être récupéré et utilisé en javascript pour créer les champs correspondants
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            l'ajout de <span class="tt">'allow_delete'=>true</span> dans le <span class="tt">$builder</span> permet de supprimer des items de la collection
+        </li>
+        <li>
+            l'ajout (et la suppression) se font à l'aide de javascript (en fait, jQuery)
+            <ul class="niv2">
+                <li>
+                    voir le code javascript <a href="index.php?p=javascripts#aj_supp_elem">ici</a>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

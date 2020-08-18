@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            exemple du sous-formulaire <span class="tt">images</span> dans les annonces de symBnB
+            <ul>
+                <li>
+                    <i class="fas fa-exclamation-circle"></i> <span class="text-muted">la validation du formlaire n'entraîne pas la validation des sous-formulaires</span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            dans <span class="tt">Image.php</span>, ajouter
+            <ul class="niv2">
+                    <li>
+                        <span class="tt">use Symfony\Component\Validator\Constraint as Assert;</span>
+                    </li>
+                </code>
+                <li>
+                    ajouter les contraintes souhaitées sur les champs : voir <a href="index.php?p=validation-de-formulaire">Validation de formulaires</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            dans <span class="tt">Ad.php</span>, ajouter
+            <ul class="niv2">
+                <li>
+                    sur la variable <span class="tt">images</span>
+                    <ul>
+                        <li><span class="tt">@Assert\Valid()</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            dans le fichier où on définit <span class="tt">_ad_images_entry_widgets</span> (ici dans <span class="tt">_collection.html.twig</span>)
+            <ul class="niv2">
+                <li>
+                    ajouter l'appel au champ error (voir <a href="index.php?p=personnaliser-l-affichage-des-sous-formulaires#form-errors">ici</a> )
+                    <ul>
+                        <li><span class="tt">&#123;{ form_errors(form.url)}}</span></li>
+                        <li><span class="tt">&#123;{ form_errors(form.caption)}}</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

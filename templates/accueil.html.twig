@@ -12,21 +12,22 @@
         <ul class="home">
             <div class="row">
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     {% set key_index = 0 %}
                     {{ macros.section( key_index ) }}
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     {% set key_index = key_index + 1 %}
                     {{ macros.section( key_index )}}
                     {% set key_index = key_index + 1 %}
                     {{ macros.section( key_index )}}
-                </div>
+                {# </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4"> #}
                     {% set key_index = key_index + 1 %}
                     {{ macros.section( key_index )}}
+
                 </div>
 
             </div>

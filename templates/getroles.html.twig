@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<code class='html p-0 m-0'>
+        <pre>
+  // retourne l'ensemble des rôles d'un utilisateur
+  public function getRoles() {
+	  // récupérer les rôles sauvegardés dans la bdd
+	  $roles = $this->userRoles->map(function($role) {
+		  return $role->getTitle();
+	  })->toArray();
+	  // ajouter le rôle ROLE_USER
+	  $roles[] = 'ROLE_USER';
+	  return $roles;
+  }</pre>
+</code>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            créer la route <span class="tt">myAccount</span> au sein du contrôleur AccountController (celui qui permet de gérer les comptes utilisateurs)
+        </li>
+        <li>
+            utiliser le template (déjà écrit) pour l'affichage d'une annonce/recette <span class="tt">user/index.html.twig'</span> (utilisé dans la fonction <span class="tt">index</span> du <span class="tt">UserController</span>
+            <ul class="niv2">
+                <li>
+                    en donnant comme user <span class="tt">$this->getUser()</span><br/>
+                    <span class="text-muted">dans un contrôleur, <span class="tt">$this->getUser()</span> renvoie l'utilisateur connecté</span>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            exemple d'après symBnB
+        </li>
+        <li>
+            dans le <span class="tt">$builder</span> de <span class="tt">AdType</span>, ajouter un champ à partir de l'objet <span class="tt">Image</span>
+            <ul class="niv2">
+                <li>
+                    ce champ est de la classe <span class="tt">CollectionType</span>
+                </li>
+                <li>
+                    l'objet Image comporte une url et une légende (caption)
+                    <ul class="niv3">
+                        <li>
+                            l'objet Image est donc en soi un formulaire
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            créer le formulaire <span class="tt">ImageType</span> basé sur l'entité <span class="tt">Image</span>
+            <ul class="niv2">
+                <li>
+                    le formulaire créé comporte les champs
+                    <ol class="niv2">
+                        <li>
+                            <span class="tt">url</span>
+                        </li>
+                        <li>
+                            <span class="tt">caption</span>
+                        </li>
+                        <li>
+                             <span class="tt">ad</span> (annonce à laquelle appartient l'image)<br/>
+                             <span class="text-muted">on supprime ce champ inutile ici (puisque l'annonce est celle qu'on est en train de créer) du <span class="tt">$builder</span></span>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    dans le <span class="tt">$builder</span> de <span class="tt">AdType</span>, ajouter :<br/>
+                    <code class='html p-0 m-0'>
+                            <pre>
+    ->add(
+	    'images',
+	    CollectionType::class,
+	    [					        // tableau d'options
+	    	'entry_type' => ImageType::class,	// on répète un type ImageType
+	    	'allow_add' => true,	       	        // on peut ajouter des Image
+	    	'allow_delete' => true,	                // on peut aussi en enlever
+	    ]
+    )</pre>
+                    </code>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

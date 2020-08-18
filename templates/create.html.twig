@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<code class='html p-0 m-0'>
+        <pre>
+    // l'exemple vient du blog_cuisine : formulaire permettant de créer une nouvelle recette (Recipe),
+    public function create(Request $request, EntityManagerInterface $manager {
+	$recipe = new Recipe();
+    	$form = $this->createForm(RecipeType::class, $recipe);
+    	// récupérer les éléments de la requête, notamment le POST
+    	$form->handleRequest($request);
+    	if( $form->isSubmitted() && $form->isValid()) {
+    		$manager->persist($recipe);
+    		$manager->flush();
+    		// avant d'afficher la nouvelle recette, on prévient l'utilisateur que celle-ci a été prise en compte
+    		// à l'aide d'un message flash
+    		$this->addFlash(
+    			'success',
+    			"Merci pour votre contribution. La recette a bien été prise en compte."
+    		);
+    		// une fois la recette enregistrée, on l'affiche grace à la route recipes_show 
+    		// ici avec le paramètre slug de la recette
+    		return $this->redirectToRoute('recipes_show', ['slug'=>$recipe->getSlug()]);
+    	}
+    	return $this->render('recipe/new.html.twig',['form' => $form->createView()]);</pre>
+</code>
+<div class="text-muted">
+    À la première visite de cette page, le formulaire n'a pas encore été soumis, le bloc du <span class="tt">if</span> est donc sauté et on affiche <span class="tt">recipe/new.html.twig</span>&nbsp;; les visites suivantes se font depuis le bouton de soumission du formulaire et le contenu des champs de celui-ci est retourné par la méthode POST&nbsp;; le bloc <span class="tt">if</span> est effectué et on est redirigé vers la route <span class="tt">recipes_show</span> avec le slug correspondant  la recette qui vient d'être soumise ce qui permet de l'afficher.
+</div>
+
+{% endblock %}

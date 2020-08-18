@@ -1,4 +1,5 @@
-$ul_color: #F39C12;
+$col_1: #F39C12;
+// $ul_color: $col_1;
 $list_color: #6a2;
 $col_info: #3498DB;
 
@@ -12,6 +13,9 @@ $col_info: #3498DB;
     margin: 0 auto;
     color: $col_info;
 }
+.col1 {
+    color: $col_1;
+}
 //---------------------------
 //  LISTES
 //---------------------------
@@ -19,7 +23,7 @@ ul {
     list-style: none;
     &.home {
         text-align: center;
-        font-size: 100%;
+        font-size: 120%;
     }
     &.niv1 >li::before {
         content: '___________';
@@ -50,11 +54,11 @@ ul {
 //---------------------------
 ol {
     & > li {
-        color: #F39C12;
+        color: $col_1;
     }
     &.niv2>li, &.niv3>li {
-        list-style-type:lower-alpha;
-        color: white;
+        list-style-type:lower-roman;
+        color: #eee;
     }
 }
 //---------------------------
@@ -67,3 +71,10 @@ pre {
     color: $col_info;
 }
 //---------------------------
+//    TABLE
+//---------------------------
+.table .td_rowspan {
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+}

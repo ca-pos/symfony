@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            créer une entité <span class="tt">Role</span> comportant
+            <ul>
+                <li>
+                    un champ <span class="tt">title</span>&nbsp;: string, 255, non nul
+                </li>
+                <li>
+                    un champ <span class="tt">users</span>&nbsp;: relation ManyToMany avec <span class="tt">User</span>, nouvelle propriété <span class="tt">userRoles</span> (pas roles) dans <span class="tt">User</span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            effectuer la migration
+        </li>
+        <li>
+            modifier <span class="tt">AppFixtures.php</span>
+            <ul class="niv2">
+                <li>
+                    créer le rôle <span class="tt">ROLE_ADMIN</span>
+                    <ul class="niv3">
+                        <li>
+                            créer un rôle administrateur&nbsp;: <span class="tt">$adminRole = new Role();</span>
+                        </li>
+                        <li>
+                            nommer le rôle&nbsp;: <span class="tt">$adminRole->setTitle('ROLE_ADMIN');</span>
+                        </li>
+                        <li>
+                            persister&nbsp;: <span class="tt">$manager->persist($adminRole);</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    créer un utilisateur ayant ce rôle
+                    <ul class="niv3">
+                        <li>
+                            <span class="tt">$adminUser = new User();</span>
+                        </li>
+                        <li>
+                            le créer à la main (voir les champs dans <span class="tt">User</span>)
+                            <ul>
+                            <code class='html p-0 m-0'>
+                                <li class='p-0 m-0'>
+                                    <pre>
+  $adminUser->setFirstName( 'xxx')
+  	    ->setLastName ( 'yyy' )
+  		.
+  		.
+  	    ->addUserRole($adminRole)</pre>
+                                </li>
+                            </code>
+                            </ul>
+                        </li>
+                        <li>
+                            persister cet utilisateur
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    charger la fixtures (load)
+                </li>
+            </ul>
+        </li>
+        <li>
+            modifier le fonction <span class="tt">getRoles()</span> de <span class="tt">User.php</span>
+            <ul class="niv2">
+                <li>
+                    voir les méthodes <span class="tt">map()</span> et <span class="tt">toArray()</span> de la classe <span class="tt">ArrayCollection</span> dans Doctrine <a href="https://www.doctrine-project.org/projects/doctrine-collections/en/1.6/index.html">ici</a>
+                </li>
+                <li>
+                    exemple de fonction <span class="tt">getRoles()</span> <a href="index.php?p=getroles">ici</a>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Champs</th>
+                <th scope="col">Utilisation</th>
+                <th scope="col">Commentaires</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-dark">
+                <td>AccountType</td>
+                <td>firstName, lastName, email, picture, introduction, description</td>
+                <td>éléments de profil de l'utilisateur</td>
+                <td>formulaire pour la modification du profil</td>
+            </tr>
+            <tr class="table-dark">
+                <td>AdType</td>
+                <td>title, slug, coverImage, introduction, content, rooms, price, images</td>
+                <td>éléments d'une annonce</td>
+                <td>price est de type MoneyType,<br/> images est de type CollectionType</td>
+            </tr>
+            <tr class="table-dark">
+                <td>ApplicationType</td>
+                <td colspan="3" class="text-center">
+                    ApplicationType.php est une &laquo;&nbsp;form&nbsp;&raquo; particulière, ne contenant que la fonction <span class="tt">getConfiguration()</span> décrite <a href="index.php?p=getconfiguration">ici</a>
+                </td>
+            </tr>
+            <tr class="table-dark">
+                <td>ImageType</td>
+                <td>url, caption</td>
+                <td>éléments d'une image</td>
+                <td>le champ <span class="tt">ad</span> est inutile, il a été supprimé</td>
+            </tr>
+            <tr class="table-dark">
+                <td>PaswordUpdateType</td>
+                <td>oldPassword, newPassword, confirmPassword</td>
+                <td>formulaire pour la modification du mot de passe</td>
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>RegistrationType</td>
+                <td>firstName, lastName, email, picture, hash, passwordConfirm, introduction, description</td>
+                <td>formulaire pour l'inscription sur le site</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

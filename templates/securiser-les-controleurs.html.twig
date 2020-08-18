@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            le principe est d'ajouter des annotations dans les fonctions du contrôleur
+        </li>
+        <li>
+            les deux principales annotations sont
+            <ul>
+                <li>
+                    <span class="tt">@Is_Granted()</span>
+                </li>
+                <li>
+                    <span class="tt">@Security()</span> (plus flexible)
+                </li>
+            </ul>
+        </li>
+        <li>
+            exemples pour le contrôleur des annonces (<span class="tt">AdController.php</span>)
+            <ol class="niv2">
+                <li>n'autoriser la création d'une annonce qu'à un utilisateur connecté (donc connu dans la bdd)
+                    <ul class="niv2">
+                        <li>dans les annotations de la fonction <span class="tt">create()</span>
+                            <ul>
+                                <li>ajouter <span class="tt">@IsGranted('ROLE_USER')</span></li>
+                                <li>importer <span class="tt">IsGranted</span></li>
+                            </ul>
+                        </li>
+                        <li>dans le <span class="tt">AccountController</span> on peut sécuriser de la même façon les fonctions
+                            <ul>
+                                <li><span class="tt">profile()</span>, <span class="tt">updatePassword()</span>, <span class="tt">myAccount()</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>n'autoriser la modification d'une annonce qu'à l'utilisateur connecté ET s'il est auteur de l'annonce
+                    <ul class="niv2">
+                        <li>ajouter l'annotation <span class="tt">@Security("is_granted('ROLE_USER') and user === ad.getAuthor()", message = "...")</span></li>
+                        <li>importer <span class="tt">Security</span> (celui de <span class="tt">FrameworkExtraBundle</span>
+                            <ul>
+                                <li class="text-muted">
+                                    <span class="tt">user</span> est connu, voir Expression de sécurité de Symfony <a href="https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/annotations/security.html">ici</a> 
+                                    et <a href="https://symfony.com/doc/current/security/expressions.html">ici</a>
+                                </li>
+                                <li class="text-muted">
+                                    <span class="tt">ad</span> est connu par la conversion de paramètres dans les arguments de la fonction
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li>sécurité, cas complexes
+            <ul class="niv2">
+                <li>
+                    utiliser les voters
+                    <ul class="niv4">
+                        <li>
+                            voir <a href="https://symfony.com/doc/current/security/voters.html">ici</a> la documentation de Symfony, voir également <a href="https://jolicode.com/blog/comment-securiser-des-champs-de-formulaire-avec-symfony">ici</a>                         
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

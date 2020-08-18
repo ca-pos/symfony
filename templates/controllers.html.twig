@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <ol>
+        <li>
+            AccountController <br/><br/>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">fonction</th>
+                    <th scope="col">route, route name</th>
+                    <th scope="col">types de paramètres</th>
+                    <th scope="col">rendu</th>
+                    <th scope="col">Commentaires</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-dark">
+                      <td>login</td>
+                      <td>/login, account_login</td>
+                      <td>AuthenticationUtils</td>
+                      <td>account/login</td>
+                      <td></td>
+                    </tr>
+                    <tr class="table-dark">
+                      <td>logout</td>
+                      <td>/logout, account_logout</td>
+                      <td></td>
+                      <td></td>
+                      <td>fonction vide, gérée par symfony</td>
+                    </tr>
+                    <tr class="table-dark">
+                      <td>register</td>
+                      <td>/register, account_register</td>
+                      <td>Request, EntityManagerInterface, UserPasswordEncoderInterface</td>
+                      <td>account/registration</td>
+                      <td>inscription sur le site</td>
+                    </tr>
+                    <tr class="table-dark">
+                      <td>profile</td>
+                      <td>/account/profile, account_profile</td>
+                      <td>Request, EntityManagerInterface</td>
+                      <td>account/profile</td>
+                      <td>modification du profil</td>
+                    </tr>
+                    <tr class="table-dark">
+                      <td>updatePassword</td>
+                      <td>/account/pasword-update</td>
+                      <td>Request, EntityManagerInterface, UserPasswordEncoderInterface</td>
+                      <td>account/password</td>
+                      <td>modification du mot de passe</td>
+                    </tr>
+                    <tr class="table-dark">
+                      <td>myAccount</td>
+                      <td>/account, account_index</td>
+                      <td></td>
+                      <td>user/index</td>
+                      <td>afficher sa propre page</td>
+                    </tr>
+                </tbody>
+            </table>         
+        </li>
+        <li>
+            AdController<br/><br/>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">fonction</th>
+                    <th scope="col">route, route name</th>
+                    <th scope="col">types de paramètres</th>
+                    <th scope="col">rendu</th>
+                    <th scope="col">Commentaires</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-dark">
+                        <td>index</td>
+                        <td>/ads, ads_index</td>
+                        <td>AdRepository</td>
+                        <td>ad/index</td>
+                        <td>affiche l'ensemble des annonces</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <td>show</td>
+                        <td>/ads/{slug}, ads_show</td>
+                        <td>Ad</td>
+                        <td>ad/show</td>
+                        <td>affichage de l'annonce {slug}</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <td>create</td>
+                        <td>/ads/new, ads_create</td>
+                        <td>Request, EntityManagerInterface</td>
+                        <td>ad/new</td>
+                        <td>création d'une nouvelle annonce</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <td>edit</td>
+                        <td>/ads/{slug}/edit,ads_edit</td>
+                        <td>Ad, Request, EntityManagerInterface</td>
+                        <td>ad/edit</td>
+                        <td>modification de l'annonce {slug}</td>
+                    </tr>
+                    <tr class="table-dark">
+                        <td>delete</td>
+                        <td>/ads/{slug}/delete,ads_delete</td>
+                        <td>Ad, EntityManagerInterface</td>
+                        <td>redirectToRoute('ads_index')</td>
+                        <td>suppression de l'annonce {slug}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+        <li>
+            HomeController<br/><br/>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">fonction</th>
+                    <th scope="col">route, route name</th>
+                    <th scope="col">types de paramètres</th>
+                    <th scope="col">rendu</th>
+                    <th scope="col">Commentaires</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-dark">
+                        <td>home</td>
+                        <td>/, homepage</td>
+                        <td></td>
+                        <td>home</td>
+                        <td>affiche la page d'accueil</td>
+                    </tr>
+            </table>
+        </li>
+        <li>
+            UserController<br/><br/>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">fonction</th>
+                    <th scope="col">route, route name</th>
+                    <th scope="col">types de paramètres</th>
+                    <th scope="col">rendu</th>
+                    <th scope="col">Commentaires</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-dark">
+                        <td>index</td>
+                        <td>/user/{slug}</td>
+                        <td>User</td>
+                        <td>user/index</td>
+                        <td>affiche le profil de l'utilisateur {slug}</td>
+                    </tr>
+            </table>
+        </li>
+    </ol>
+
+
+{% endblock %}

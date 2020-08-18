@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            exemple basé sur les sous-formulaires <a href="index.php?p=sous-formulaires-avec-collectiontype">ci-dessus</a>
+        </li>
+        <li>
+            pour afficher un formulaire, Symfony appelle différents blocs
+            <ul class="niv2">
+                <li>
+                    le principe consiste à personnaliser ces blocs que l'on repère par leur <span class="tt">id</span>
+                    <ul class="niv3">
+                        <li>
+                            dans le <span class="tt">$builder</span>, on a ajouté le champ <span class="tt">images</span>, le bloc s'appelle donc&nbsp;
+                            <ul>
+                                <li><span class="tt">#ad_images</span></li>
+                            </ul>
+                        </li>
+                        <li>
+                            et les éléments du champ s'appellent&nbsp;:
+                            <ul>
+                                <li>
+                                    <span class="tt">#ad_images_0_url</span>, <span class="tt"> #ad_images_0_caption</span>, <span class="tt">#ad_images_1_url</span>, etc.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            dans le fichier <span class="tt">new.html.twig</span>, ajouter&nbsp;:
+            <ol class="niv2">
+                <li>
+                    au début, en dehors des blocs, prévenir Symfony d'utiliser un thème pour la variable <span class="tt">form</span>
+                    <ul>
+                        <li>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre>
+    &#123;% form_theme form _self %} &#09;&#123;# thème de formulaire pour le formulaire form dans ce fichier #}</pre>
+                            </li>
+                        </code>
+                        <span class="text-muted">(si le thème est dans un autre fichier remplacer <span class="tt">_self</span> par le chemin de ce fichier)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    pour personnaliser l'affichage du bloc <span class="tt">#ad_images</span>
+                    <ul>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre>
+    &#123;% block _ad_images_widget %}	        &#123;# lorsque symfony rencontre la div ad_images #}
+    					        &#123;# mise en forme de la division #}			
+        &lt;p>Vous pouvez ajouter des images&lt;/p>	&#123;# du html classique #}
+	&#123;{ form_widget(form) }}			&#123;# du twig, suite du form_widget #}
+	&lt;input type="hidden" id="widgets-counter" value="0" /> &#123;# pour compter les images #}
+        &lt;div class="form-group">		&#123;# un bouton pour ajouter des images #}
+            &lt;button type="button" id="add-image" class="btn btn-primary">Ajouter une image&lt;/button>
+        &lt;/div>
+    &#123;% endblock %}</pre>
+                            </li>
+                        </code>
+                    </ul>
+                </li>
+                <li>
+                    pour personnaliser l'affichage des sous-champs du bloc <span class="tt">#ad_images</span><br/>
+                    <span class="text-muted">&emsp;&emsp;(les entry_type de la collection qui sont des images donc des sous-formulaires avec les champs url et caption)</span>
+                    <ul>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre id="form-errors">
+    &#123;% block _ad_images_entry_widget %}	&#123;# on s'intéresse spécifiquement au widget #}
+	    &lt;div class="form-group">
+	        &lt;div class="row">
+	            &lt;div class="col">
+	                &#123;{ form_widget(form.url) }}
+                        &#123;{ form_errors(form.caption)}} &#123;# ajout de error, voir <a href="#">ici</a> #}
+	            &lt;/div>
+	            &lt;div class="col">
+	                &#123;{ form_widget(form.caption) }}
+                        &#123;{ form_errors(form.caption)}}
+	            &lt;/div>
+	        &lt;/div>
+	    &lt;/div>
+    &#123;% endblock %}</pre>
+                            </li>
+                        </code>
+                        <span class="text-muted">les déclarations <span class="tt">form_errors</span> sont utilisées pour la <a href="index.php?p=validation-des-sous-formulaires">Validation des sous-formulaires</a></span>
+                    </ul>
+                </li>
+                <li>
+                    pour redéfinir le <span class="tt">form_row</span> et ne garder que le widget d'une entrée, c.-à-d. les champs <span class="tt">url</span> et <span class="tt">caption</span>
+                    <ul>
+                    <code class='html p-0 m-0'>
+                        <li class='p-0 m-0'>
+                            <pre>
+    &#123;% block _ad_images_entry_row %}
+	&#123;{ form_widget(form) }}
+    &#123;% endblock %}</pre>
+                        </li>
+                    </code>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li id="refactorisation">
+            refactorisation
+            <ul class="niv2">
+                <li>
+                    la page d'édition d'une annonce créée par la suite (voir <a href="index.php?p=page-de-modification-d-une-annonce-recette">ici</a>) reprend les mêmes codes&nbsp;;  les codes ii. à iv. ont donc été déplacés dans le fichier <span class="tt">_collection.html.twig</span> et le code i. a été modifié ainsi&nbsp;:
+                    <ul>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre>
+    &#123;% form_theme form 'ad/_collection.html.twig' %}</pre>
+                            </li>
+                        </code>
+                    </ul>
+                </li>
+                <li>
+                    <span class="text-muted">Note&nbsp;: Le code javascript de la page a également été factorisé, voir <a href="index.php?p=javascripts#refactorisation">ici</a> </span>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}

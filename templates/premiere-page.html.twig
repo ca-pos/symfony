@@ -1,19 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        <ol>
-           <li>
-               généralement, on commence par écire la page d'accueil
-           </li>
-            <li>
-                création de la page d'accueil
-                <ul class="niv2">
-                    <li>php bin/console make:controller [nom] (p.ex. HomeController)</li>
-                    <li>puis création du fichier twig</li>
-                </ul>
-            </li>
-            <li>
-                git add . puis git commit -m "..."
-            </li>
-        </ol>
+    <ol>
+        <li>
+            création de la page d'accueil
+            <ul class="niv2">
+                <li>
+                    création du contrôleur <span class="tt">php bin/console make:controller [nom]</span> (p.ex. <span class="tt">HomeController<span>)
+                </li>
+                <li>
+                    puis création du fichier <span class="tt">home.html.twig</span> qui implique de créer les fichiers <span class="tt">base.htmltwig</span>, <span class="tt">header.html.twig</span> et <span class="tt">footer.html.twig</span>
+                    <ul>
+                        <li class="text-muted">création du fichier <span class="tt">base.html.twig</span> (voir un exemple <a href="index.php?p=base-html-twig">ici</a>)</li>
+                        <li class="text-muted">création des fichiers <span class="tt">header.html.twig</span> et <span class="tt">footer.html.twig</span> dans le sous-répertoire <span class="tt">templates/partials</span></li>
+                        <li class="text-muted">le fichier <span class="tt">header.html.twig</span> contient notamment la barre de navigation et l'affichage des messages flash (voir un exemple   <a href="index.php?p=header-html-twig">ici</a> )</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            git add . puis git commit -m "..."
+        </li>
+    </ol>
 {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<code class='html p-0 m-0'>
+        <pre>
+&lt;!DOCTYPE html>
+&lt;html>
+    &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;title>SymBnB - &#123;% block title %}Welcome!&#123;% endblock %}&lt;/title>
+        &lt;link rel="stylesheet" href="/css/bootstrap.min.css">
+        &lt;link rel="stylesheet" href="/css/app.css">
+        &#123;% block stylesheets %}&#123;% endblock %}
+    &lt;/head>
+
+    &lt;body>
+      &#123;% include 'partials/header.html.twig' %}
+
+      &#123;% block body %}&#123;% endblock %}
+      
+      &#123;% include 'partials/footer.html.twig' %}
+
+      &lt;script src="/js/jquery-3.5.1.slim.min.js">&lt;/script>
+      &lt;script src="/js/popper.min.js">&lt;/script>
+      &lt;script src="/js/bootstrap.min.js">&lt;/script>
+	  
+	  &#123;% block javascripts %}&#123;% endblock %}
+    &lt;/body>
+&lt;/html></pre>
+</code>
+{% endblock %}
+

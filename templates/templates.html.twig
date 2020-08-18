@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Fichier de rendu (html.twig)</th>
+                <th scope="col">Utilisation</th>
+                <th scope="col">Contrôleur</th>
+                <th scope="col">Commentaires</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-dark">
+                <td colspan="4" class="col1">templates</td>
+            </tr>
+            <tr class="table-dark">
+                <td>base</td>
+                <td>code commun à toutes les pages</td>
+                <td class="text-center">-</td>
+                <td>certaines parties du code sont isolées dans des fichiers séparés (p.ex. <span class="tt">header.html.twig</span>)</td>
+            </tr>
+            <tr class="table-dark">
+                <td>home</td>
+                <td><a href="index.php?p=premiere-page">page d'accueil</a></td>
+                <td>HomeController</td>
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td colspan="4" class="col1">templates/account</td>
+            </tr>
+            <tr class="table-dark">
+                <td>login</td>
+                <td><a href="index.php?p=page-de-connexion">page de connexion</a> </td>
+                <td rowspan="4" class="td_rowspan">AccountController</td>
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>password</td>
+                <td><a href="index.php?p=page-de-modification-du-mot-de-passe">page de modification du mot de pass</a> </td>
+                {# <td>AccountController</td> #}
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>profile</td>
+                <td><a href="index.php?p=page-de-modification-de-profil">page de modification du profil</a> </td>
+                {# <td>AccountController</td> #}
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>registration</td>
+                <td><a href="index.php?p=page-d-inscription">page d'inscription sur le site</a> </td>
+                {# <td>AccountController</td> #}
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td colspan="4" class="col1">templates/ad</td>
+            </tr>
+            <tr class="table-dark">
+                <td>edit</td>
+                <td><a href="index.php?p=page-de-modification-d-une-annonce-recette">page de mise à jour d'une annonce/recette</a></td>
+                <td rowspan="4" class="td_rowspan">AdController</td>
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>index</td>
+                <td>liste des annonces</td>
+                {# <td></td> #}
+                <td>l'essentiel du code se trouve dans <span class="tt">_ad.html.twig</span></td>
+            </tr>
+            <tr class="table-dark">
+                <td>new</td>
+                <td>créer une nouvelle annonce</td>
+                {# <td></td> #}
+                <td>la fonction dans le contrôleur est <span class="tt">create()</span> (voir <a href="index.php?p=create">ici</a>)</td>
+            </tr>
+            <tr class="table-dark">
+                <td>show</td>
+                <td>affichage complet d'une annonce</td>
+                {# <td></td> #}
+                <td></td>
+            </tr>
+            <tr class="table-dark">
+                <td>_ad</td>
+                <td>code pour l'affichage du résumé d'une annonce</td>
+                <td class="text-center">-</td>
+                <td>utilisé dans <span class="tt">ad/index</span> et <span class="tt">user/index</span></td>
+            </tr>
+            <tr class="table-dark">
+                <td>_collection</td>
+                <td>code pour l'ajout des images supplémentaires (symbnb)</td>
+                <td class="text-center">-</td>
+                <td>utilisé dans <span class="tt">ad/edit</span> et <span class="tt">ad/new</span></td>
+            </tr>
+            <tr class="table-dark">
+                <td colspan="4" class="col1">templates/partials</td>
+            </tr>
+            <tr class="table-dark">
+                <td>footer</td>
+                <td>pied de page (toutes les pages)</td>
+                <td rowspan="2" class="td_rowspan">-</td>
+                <td rowspan="2" class="td_rowspan">fichiers utilisés dans <span class="tt">base.html.twig</span></td>
+            </tr>
+            <tr class="table-dark">
+                <td>header</td>
+                <td>haut de page (toutes les pages)</td>
+                {# <td></td> #}
+                {# <td></td> #}
+            </tr>
+            <tr class="table-dark">
+                <td colspan="4" class="col1">templates/user</td>
+            </tr>
+            <tr class="table-dark">
+                <td>index</td>
+                <td>liste des annonces d'un utilisateur</td>
+                <td>UserController</td>
+                <td>une partie du code se trouve dans <span class="tt">_ad.html.twig</span></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+{% endblock %}

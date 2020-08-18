@@ -14,6 +14,7 @@ class ApplicationType extends AbstractType {
      *
      * @param string $label
      * @param string $placeholder
+     * @param array $options
      * 
      * @return array
      */
@@ -26,17 +27,30 @@ class ApplicationType extends AbstractType {
         ], $options );
     }
 
-}
-    </pre>
+}</pre>
+</code>
     <ul class="niv1">
         <li>
             cette version de <span class="tt">getConfiguration</span>
             retourne le label et un attribut, le placeholder
         </li> 
         <li>
-            il est possible d'ajouter ponctuellement un tableau d'autres options comme paramètre 3&nbsp;; par défaut, ce tableau est vide&nbsp;; il est ajouté (<span class="tt">merge_array()</span>) aux options <span class="tt">label</span> et <span class="tt">attr</span>
+            il est possible d'ajouter un tableau d'autres options (paramètre 3) 
+            <ul>
+                <li>
+                    il est ajouté (<span class="tt">array_merge()</span>) aux options <span class="tt">label</span> et <span class="tt">attr</span>
+                </li>
+                <li>
+                    par défaut, ce tableau est vide
+                </li>
+                <li>
+                    exemple d'utilisation
+                    <span class="tt">$this->getConfiguration( "Adresse web", "Adresse web de votre annonce",
+                ['required' => false ])</span>
+                </li>
+            
+            </ul>
         </li>
     </ul>
-</code>
 
 {% endblock %}

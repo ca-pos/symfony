@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<code class='html p-0 m-0'>
+        <pre>
+    &lt;nav class="navbar navbar-expand-lg navbar-light bg-light">
+        &lt;a class="navbar-brand" href="&#123;&#123; path('homepage')}}">SymBnB&lt;/a>
+        &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" 
+                        aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          &lt;span class="navbar-toggler-icon">&lt;/span>
+        &lt;/button>
+    
+        &lt;div class="collapse navbar-collapse" id="navbarColor03">
+          &lt;ul class="navbar-nav mr-auto">
+            &lt;li class="nav-item">
+              &lt;a class="nav-link" href="&#123;&#123; path('homepage')}}">Accueil&lt;/a>
+            &lt;/li>
+            &lt;li class="nav-item">
+              &lt;a class="nav-link" href="&#123;&#123; path('ads_index')}}">Annonces&lt;/a>
+            &lt;/li>
+          &lt;/ul>
+          &lt;ul class="navbar-nav ml-auto">
+            &#123;% if app.user %}
+              &lt;li class="nav_item dropdown">
+                &lt;a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                  &lt;img src="&#123;&#123;app.user.picture}}"  alt="Avatar de &#123;&#123;app.user.fullName}}" class="avatar avatar-mini">
+                  &#123;&#123;app.user.fullName}}
+                &lt;/a>
+                &lt;div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+                  &lt;a href="&#123;&#123; path('ads_create')}}" class="dropdown-item">
+                    Créer une annonce
+                  &lt;/a>
+                  &lt;div class="dropdown-divider">&lt;/div>
+                  &lt;a href="&#123;&#123;path('account_index')}}" class="dropdown-item">
+                    Mon compte
+                  &lt;/a>
+                  &lt;a href="&#123;&#123;path('account_profile')}}" class="dropdown-item">
+                    Mon profil
+                  &lt;/a>
+                  &lt;div class="dropdown-divider">&lt;/div>
+                  &lt;a href="&#123;&#123;path('account_logout')}}" class="dropdown-item">
+                    Déconnexion
+                  &lt;/a>              
+                &lt;/div>
+              &lt;/li>
+            &#123;% else %}
+              &lt;li class="nav-item">
+                &lt;a href="&#123;&#123;path('account_login')}}" class="nav-link">Se connecter&lt;/a>
+              &lt;/li>
+              &lt;li class="nav-item">
+                &lt;a href="&#123;&#123;path('account_register')}}" class="nav-link">S'inscrire&lt;/a>
+              &lt;/li>
+            &#123;% endif %}
+          &lt;/ul>
+        &lt;/div>
+    &lt;/nav>
+
+    &#123;% for label, messages in app.flashes %}
+      &lt;div class="container">
+        &lt;div class="alert alert-&#123;&#123; label }}">
+          &#123;% for message in messages %}
+            &lt;p>&#123;&#123; message }}&lt;/p>
+          &#123;% endfor %}
+        &lt;/div>
+      &lt;/div>
+    &#123;% endfor %}</pre>
+</code>
+{% endblock %}
+

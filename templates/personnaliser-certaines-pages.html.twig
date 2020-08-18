@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            ajouter dans la page d'affichage des profils des boutons qui ne figureront que si
+            <ul class="niv2">
+                <li>
+                    l'utilisateur dont c'est la page (le <span class="tt">user</span> transmis pas le contrôleur&nbsp;; <span class="tt">getUser()</span> voir la note 
+                    <a href="index.php?p=creer-une-route-d-acces-a-son-propre-compte">ici</a> ) est le même que l'utilisateur connecté (<span class="tt">app.user</span>)
+                    <ul>
+                        
+                            <code class='html p-0 m-0'>
+                                <li class='p-0 m-0'>
+                                    <pre>
+&#123;% if user is same as(app.user) %} &#123;# comparaison de 2 objets #}</pre>
+                                </li>
+                            </code>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            exemples
+            <ul class="niv2">
+                <li>
+                    bouton d'accès à la page de modification du profil : <span class="tt">href=&quot;&#123;{path(&apos;account_profile&apos;}}&quot;</span>
+                </li>
+                <li>
+                    bouton d'accès à la page de modification de mdp : <span class="tt">href=&quot;&#123;{path(&apos;account_password&apos;}}&quot;</span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            de la même façon, il est possible de personnaliser d'autres pages
+            <ul class="niv2">
+                <li>
+                    p.ex. faire apparaître le bouton de modification d'une annonce uniquement pour ses propres annonces (pages <span class="tt">show.html.twig</span> et <span class="tt">_ad.html.twig</span>)
+                    <ul>
+                        <code class='html p-0 m-0'>
+                            <li class='p-0 m-0'>
+                                <pre>
+&#123;# les deux syntaxe du if is same et == sont-elles équivalentes ? à vérifier (twig 2 vs 3 ??) #}
+&#123;% if app.user == ad.author %}
+    &lt;href=&quot;&#123;{ path(&apos;_ads_edit&apos;, {&apos;slug&apos;: ad.slug})}}&quot; class=&quot;btn btn-secondary&quot;>Modifier l'annonce&lt;/a>
+&#123;% endif %}</pre>
+                            </li>
+                        </code>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            on peut également ajouter dans ce <span class="tt">if</span> un bouton de suppression d'une annonce (voir section <a href="index.php?p=suppression-d-une-annonce">suivante</a>)
+        </li>
+    </ol>
+{% endblock %}
