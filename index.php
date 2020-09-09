@@ -65,6 +65,7 @@ $pages_h1 = [
      "Lier les annonces aux utilisateurs",
      "Autorisations. Concept de rôle",
      "Sécuriser les contrôleurs",
+     "Pages d'erreurs personnalisées ",
         ],
      "Exemples de code" => [
          "base.html.twig",

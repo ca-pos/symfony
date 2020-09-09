@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ol>
+        <li>
+            créer l'arborescence
+            <ul>
+            
+                <code class='html p-0 m-0'>
+                    <li class='p-0 m-0'>
+                        <pre>
+    templates
+        bundles
+            TwigBundle
+                Exception</pre>
+                    </li>
+                </code>
+            </ul>
+        </li>
+        <li>
+            les pages d'erreurs ...
+            <ul class="niv2">
+                <li>
+                    vont dans le dossier <span>Exception</span>
+                </li>
+                <li>
+                    ont pour nom <span class="tt">error{numéro de l'erreur}.html.twig</span>
+                    <ul>
+                        <li>p.ex. <span class="tt">error404.html.twig</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            créer les différentes pages
+            <ul class="niv2">
+                <li>
+                    qui peuvent inclure (notamment)
+                    <ul class="niv3">
+                        <li>
+                            la barre de navigation
+                        </li>
+                        <li>
+                            un petit texte
+                        </li>
+                        <li>
+                            des liens de retour à diverses parties du site
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            pages le plus fréquemment personnalisées
+            <ul class="niv2">
+                <li>Erreur 404&nbsp;: Page non trouvée&nbsp;;</li>
+                <li>Erreur 403&nbsp;: Opération interdite&nbsp;;</li>
+            </ul>
+        </li>
+        <li>
+            pour voir les pages d'erreurs personnalisées lorsqu'on est en environnement de développement on peut
+            <ul class="niv2">
+                <li>
+                    utiliser une route spéciale, p.ex, pour l'erreur 404, la route
+                    <ul>
+                        <li><span class="tt">/_error/404</span></li>
+                    </ul>
+                </li>
+                <li>
+                    dans le fichier <span class="tt">.env</span>
+                    <ul>
+                        <li>
+                            changer la variable <span class="tt">APP_ENV=dev</span> en <span class="tt">APP_ENV=prod</span>
+                        </li>
+                        <li class="text-muted">si c'est l'ancienne page d'erreur qui apparaît, c'est sans doute qu'elle est en cache, supprimer le dossier <span class="tt">var/cache/prod</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ol>
+{% endblock %}
