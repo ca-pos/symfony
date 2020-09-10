@@ -8,7 +8,8 @@
 
     <div class="container">
         <h1 class="text-center my-3">Développer une application avec Symfony</h1>
-        <h4 class="text-center mb-5">D'après les projets symbnb et blog_cuisine (Symfony version 4.4)</h4>
+        <h4 class="text-center mb-2">D'après les projets symbnb (cours de <em>Lior Chamla</em>) et blog_cuisine</h4>
+        <h4 class="text-center mb-4">(Symfony version 4.4)</h4>
         <ul class="home">
             <div class="row">
 
@@ -34,12 +35,12 @@
         </ul>
    </div>
    {# à enlever dans la version définitive #}
-    {% for key in pages_slug|keys %}
+    {# {% for key in pages_slug|keys %}
         {% for i in 0..pages_slug[key]|length-1 %}
            {{ pages_slug[key][i] }}<br/>
         {% endfor %}
         <br/>
        <span class="text-warning">{{ pages_slug[key][pages_slug[key]|length-1]}}.html.twig</span>
        <br/><br/>
-    {% endfor %}
+    {% endfor %} #}
 {% endblock %}
